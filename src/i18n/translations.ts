@@ -1,0 +1,1299 @@
+export type Lang = 'fr' | 'en' | 'es' | 'de' | 'it';
+
+export const languages: { code: Lang; label: string; flag: string }[] = [
+  { code: 'fr', label: 'Français', flag: '🇫🇷' },
+  { code: 'en', label: 'English', flag: '🇬🇧' },
+  { code: 'es', label: 'Español', flag: '🇪🇸' },
+  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
+  { code: 'it', label: 'Italiano', flag: '🇮🇹' },
+];
+
+type ServiceT = {
+  title: string;
+  desc: string;
+  amount: string;
+  duration: string;
+  rate: string;
+};
+
+type StepT = { title: string; desc: string };
+
+type AdvantageT = { title: string; desc: string };
+
+type ValueT = { title: string; desc: string };
+
+type MilestoneT = { year: string; text: string };
+
+type TestimonialT = { name: string; role: string; text: string };
+
+type IncludesT = string;
+
+export type Translation = {
+  nav: { home: string; about: string; services: string; contact: string };
+  brand: { name: string; tagline: string };
+  footer: {
+    about: string;
+    navigation: string;
+    ourServices: string;
+    contactTitle: string;
+    whatsappLabel: string;
+    rights: string;
+    legal: string;
+  };
+  whatsapp: string;
+  home: {
+    badge: string;
+    heroTitle: string;
+    heroHighlight: string;
+    heroDesc: string;
+    ctaServices: string;
+    ctaRequest: string;
+    stats: { clients: string; satisfaction: string; response: string; credits: string };
+    advantagesEyebrow: string;
+    advantagesTitle: string;
+    advantagesSubtitle: string;
+    advantages: AdvantageT[];
+    servicesEyebrow: string;
+    servicesTitle: string;
+    servicesSubtitle: string;
+    viewAllServices: string;
+    stepsEyebrow: string;
+    stepsTitle: string;
+    stepsSubtitle: string;
+    steps: StepT[];
+    trustEyebrow: string;
+    trustTitle: string;
+    trustDesc: string;
+    trustList: string[];
+    trustBadge: string;
+    trustBadgeAuthor: string;
+    learnMore: string;
+    ctaTitle: string;
+    ctaDesc: string;
+    callNow: string;
+    sendEmail: string;
+    partnersEyebrow: string;
+    partnersTitle: string;
+    partnersDesc: string;
+    banks: { name: string; initial: string }[];
+  };
+  about: {
+    eyebrow: string;
+    heroTitle: string;
+    heroDesc: string;
+    storyEyebrow: string;
+    storyTitle: string;
+    storyP1: string;
+    storyP2: string;
+    storyP3: string;
+    yearsExp: string;
+    yearsExpLabel: string;
+    missionTitle: string;
+    missionDesc: string;
+    visionTitle: string;
+    visionDesc: string;
+    commitmentTitle: string;
+    commitmentDesc: string;
+    valuesEyebrow: string;
+    valuesTitle: string;
+    values: ValueT[];
+    timelineEyebrow: string;
+    timelineTitle: string;
+    milestones: MilestoneT[];
+    testimonialsEyebrow: string;
+    testimonialsTitle: string;
+    testimonials: TestimonialT[];
+    ctaTitle: string;
+    ctaDesc: string;
+    contactUs: string;
+  };
+  services: {
+    eyebrow: string;
+    heroTitle: string;
+    heroDesc: string;
+    serviceLabel: string;
+    requestLoan: string;
+    amount: string;
+    duration: string;
+    rate: string;
+    includesEyebrow: string;
+    includesTitle: string;
+    includesSubtitle: string;
+    includes: IncludesT[];
+    commitmentsEyebrow: string;
+    commitmentsTitle: string;
+    response24: string;
+    response24Label: string;
+    taeg: string;
+    taegLabel: string;
+    noFees: string;
+    noFeesLabel: string;
+    ctaTitle: string;
+    ctaDesc: string;
+    callNow: string;
+    formTitle: string;
+    formDesc: string;
+    firstNameLabel: string;
+    firstNamePlaceholder: string;
+    lastNameLabel: string;
+    lastNamePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    countryLabel: string;
+    countryPlaceholder: string;
+    amountLabel: string;
+    amountPlaceholder: string;
+    durationLabel: string;
+    durationPlaceholder: string;
+    submit: string;
+    successMsg: string;
+  };
+  contact: {
+    eyebrow: string;
+    heroTitle: string;
+    heroDesc: string;
+    phone: string;
+    whatsapp: string;
+    email: string;
+    callNow: string;
+    chatWhatsapp: string;
+    sendEmail: string;
+    formTitle: string;
+    formDesc: string;
+    successMsg: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    countryLabel: string;
+    countryPlaceholder: string;
+    amountLabel: string;
+    amountPlaceholder: string;
+    amounts: string[];
+    messageLabel: string;
+    messagePlaceholder: string;
+    submit: string;
+    formDisclaimer: string;
+    agencyTitle: string;
+    agencyDesc: string;
+    addressLabel: string;
+    hoursLabel: string;
+    hoursWeek: string;
+    hoursSat: string;
+    phoneLabel2: string;
+    emailLabel2: string;
+    seeMap: string;
+    mapClickHint: string;
+    mapPopupTitle: string;
+    itinerary: string;
+    callAgency: string;
+  };
+  servicesData: ServiceT[];
+};
+
+export const translations: Record<Lang, Translation> = {
+  fr: {
+    nav: { home: 'Accueil', about: 'À propos', services: 'Services', contact: 'Contact' },
+    brand: { name: 'Prêt Rapide', tagline: 'Solutions de Crédit' },
+    footer: {
+      about: 'Votre partenaire de confiance pour tous vos projets de financement à Paris et partout en France. Des solutions rapides, transparentes et adaptées à vos besoins.',
+      navigation: 'Navigation',
+      ourServices: 'Nos Services',
+      contactTitle: 'Contact',
+      whatsappLabel: 'WhatsApp',
+      rights: 'Tous droits réservés.',
+      legal: "Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.",
+    },
+    whatsapp: 'WhatsApp',
+    home: {
+      badge: 'N°1 du crédit rapide à Paris',
+      heroTitle: 'Votre projet mérite un',
+      heroHighlight: 'financement rapide',
+      heroDesc: "Prêt personnel, immobilier, auto ou rachat de crédit. Obtenez une réponse de principe en 24 heures et recevez vos fonds en 48h. Simple, transparent et sans engagement.",
+      ctaServices: 'Découvrir nos services',
+      ctaRequest: 'Demander un prêt',
+      stats: { clients: 'Clients accompagnés', satisfaction: 'Taux de satisfaction', response: 'Réponse de principe', credits: 'Crédits octroyés' },
+      advantagesEyebrow: 'Pourquoi nous choisir',
+      advantagesTitle: 'Une expérience de crédit pensée pour vous',
+      advantagesSubtitle: "Depuis plus de 10 ans, nous mettons notre expertise au service de vos projets avec rapidité, transparence et un accompagnement humain.",
+      advantages: [
+        { title: 'Rapidité garantie', desc: "Une réponse de principe en 24h et un déblocage des fonds en 48h." },
+        { title: '100 % sécurisé', desc: 'Vos données sont protégées et chiffrées. Aucune fuite possible.' },
+        { title: 'Taux compétitifs', desc: 'Des TAEG parmi les plus bas du marché, dès 1,8 %.' },
+        { title: 'Accompagnement humain', desc: 'Un conseiller dédié vous guide à chaque étape de votre projet.' },
+        { title: 'Transparence totale', desc: "Aucun frais caché. Vous connaissez votre coût total dès le départ." },
+        { title: 'Avec engagement', desc: "Votre demande est gratuite et ne vous engage à rien." },
+      ],
+      servicesEyebrow: 'Nos solutions de crédit',
+      servicesTitle: 'Un prêt adapté à chaque projet',
+      servicesSubtitle: "Que vous achetiez une maison, une voiture ou que vous souhaitiez regrouper vos crédits, nous avons la solution qu'il vous faut.",
+      viewAllServices: 'Voir tous les services',
+      stepsEyebrow: 'Comment ça marche',
+      stepsTitle: 'Votre crédit en 4 étapes simples',
+      stepsSubtitle: 'Un processus clair et rapide, de votre demande au déblocage des fonds.',
+      steps: [
+        { title: '1. Déposez votre demande', desc: "Remplissez notre formulaire en ligne en quelques minutes. Indiquez le montant souhaité et votre situation. Aucun engagement." },
+        { title: '2. Réponse de principe', desc: "Nos conseillers analysent votre dossier et vous transmettent une réponse de principe sous 24 heures, sans frais cachés." },
+        { title: '3. Signature du contrat', desc: "Signez votre offre de prêt en ligne ou en agence. Un accompagnement personnalisé à chaque étape de votre projet." },
+        { title: '4. Déblocage des fonds', desc: "Recevez vos fonds directement sur votre compte bancaire en 48h après signature. Rapide, simple et sécurisé." },
+      ],
+      trustEyebrow: 'Ils nous font confiance',
+      trustTitle: 'Des milliers de clients ont déjà réalisé leurs projets',
+      trustDesc: "Nous accompagnons les particuliers et les professionnels de Paris et de toute la France dans leurs projets de financement. Notre priorité : votre satisfaction.",
+      trustList: [
+        "Une équipe de conseillers experts à votre écoute",
+        'Des solutions flexibles adaptées à votre profil',
+        'Un suivi personnalisé du début à la fin de votre projet',
+        'Une agence au cœur de Paris, Boulevard Haussmann',
+      ],
+      trustBadge: '"Grâce à Prêt Rapide, nous avons pu acheter notre première maison. Un accompagnement exceptionnel !"',
+      trustBadgeAuthor: '— Sophie & Marc, Paris 9e',
+      learnMore: 'En savoir plus sur nous',
+      ctaTitle: 'Prêt à concrétiser votre projet ?',
+      ctaDesc: "Contactez-nous dès aujourd'hui et obtenez une réponse de principe en 24 heures. Sans engagement.",
+      callNow: 'Envoyer un email',
+      sendEmail: 'Envoyer un email',
+      partnersEyebrow: 'Partenaires',
+      partnersTitle: 'Nos partenaires bancaires de confiance',
+      partnersDesc: 'Nous collaborons avec les meilleures banques françaises pour vous offrir les solutions les plus adaptées à vos besoins.',
+      banks: [
+        { name: 'BNP Paribas', initial: 'B' },
+        { name: 'Crédit Agricole', initial: 'C' },
+        { name: 'LCL', initial: 'L' },
+        { name: 'Boursorama', initial: 'B' },
+        { name: 'La Banque Postale', initial: 'L' },
+        { name: 'Hello bank!', initial: 'H' },
+      ],
+    },
+    about: {
+      eyebrow: 'À propos de nous',
+      heroTitle: 'Votre partenaire de confiance pour le crédit, au cœur de Paris',
+      heroDesc: "Depuis 2013, Prêt Rapide accompagne les particuliers et les professionnels dans tous leurs projets de financement. Notre mission : rendre le crédit accessible, rapide et transparent.",
+      storyEyebrow: 'Notre histoire',
+      storyTitle: 'Né au cœur de Paris, au service de toute la France',
+      storyP1: "Fondée en 2013 au 29 Boulevard Haussmann, Prêt Rapide est née d'une conviction simple : obtenir un crédit ne devrait pas être un parcours du combattant. Nous avons voulu créer une structure où la rapidité rime avec la transparence, et où chaque client bénéficie d'un véritable accompagnement.",
+      storyP2: "En plus de dix ans, nous avons accompagné plus de 15 000 clients et octroyé plus de 500 millions d'euros de crédits. Du prêt personnel au prêt immobilier, du rachat de crédit au financement professionnel, nous couvrons l'ensemble de vos besoins.",
+      storyP3: "Aujourd'hui, notre agence parisienne reste notre cœur historique, mais nos services en ligne nous permettent d'accompagner des clients partout en France, avec la même exigence de qualité.",
+      yearsExp: '10+',
+      yearsExpLabel: "ans d'expérience",
+      missionTitle: 'Notre mission',
+      missionDesc: "Rendre le crédit accessible à tous, rapidement et en toute transparence. Nous démocratisons l'accès au financement pour que chacun puisse réaliser ses projets.",
+      visionTitle: 'Notre vision',
+      visionDesc: "Devenir la référence du crédit rapide en France, en alliant l'expertise humaine de nos conseillers à la simplicité d'une plateforme en ligne intuitive.",
+      commitmentTitle: 'Notre engagement',
+      commitmentDesc: "98 % de clients satisfaits. Nous nous engageons sur la rapidité, la transparence et un accompagnement personnalisé à chaque étape de votre projet.",
+      valuesEyebrow: 'Nos valeurs',
+      valuesTitle: 'Ce qui nous guide au quotidien',
+      values: [
+        { title: 'Intégrité', desc: "Nous agissons avec honnêteté et transparence, sans frais cachés ni mauvaises surprises." },
+        { title: 'Proximité', desc: 'Chaque client est unique. Nous écoutons vos besoins et adaptons nos solutions à votre situation.' },
+        { title: 'Réactivité', desc: "La rapidité est notre signature. Une réponse en 24h, des fonds en 48h." },
+        { title: 'Performance', desc: 'Des taux parmi les plus bas du marché, pour des mensualités toujours plus légères.' },
+      ],
+      timelineEyebrow: 'Notre parcours',
+      timelineTitle: "Plus de 10 ans d'expertise à votre service",
+      milestones: [
+        { year: '2013', text: 'Création de Prêt Rapide au cœur de Paris, Boulevard Haussmann.' },
+        { year: '2016', text: "Plus de 5 000 clients accompagnés. Ouverture du service de rachat de crédit." },
+        { year: '2019', text: 'Lancement de la plateforme en ligne. 10 000 clients et 200 M€ de crédits octroyés.' },
+        { year: '2022', text: 'Certification "Excellence du Crédit" et expansion nationale.' },
+        { year: '2026', text: 'Plus de 15 000 clients accompagnés et 500 M€ de crédits octroyés.' },
+      ],
+      testimonialsEyebrow: 'Témoignages',
+      testimonialsTitle: 'Ce que nos clients disent de nous',
+      testimonials: [
+        { name: 'Sophie L.', role: 'Propriétaire, Paris 9e', text: "Un prêt immobilier obtenu en moins d'une semaine. L'équipe a été d'une efficacité remarquable. Je recommande vivement Prêt Rapide." },
+        { name: 'James W.', role: 'Entrepreneur, Londres', text: "Un excellent service pour mon entreprise professionnelle. Taux compétitifs et accompagnement parfait. Je recommande !" },
+        { name: 'Carlos G.', role: 'Architecte, Madrid', text: "El préstamo para mi proyecto de construcción fue aprobado rápidamente. Servicio excepcional y muy profesional." },
+        { name: 'Hans M.', role: 'Ingénieur, Berlin', text: "Schnelle und zuverlässige Kreditvergabe. Der Prozess war transparent und der Kundenservice erstklassig. Sehr empfehlenswert!" },
+      ],
+      ctaTitle: 'Rejoignez nos 15 000 clients satisfaits',
+      ctaDesc: 'Confiez votre projet à des experts qui ont à cœur de vous accompagner.',
+      contactUs: 'Nous contacter',
+    },
+    services: {
+      eyebrow: 'Nos services',
+      heroTitle: 'Des solutions de crédit pour chaque besoin',
+      heroDesc: 'Du prêt personnel au rachat de crédit, découvrez nos solutions flexibles et compétitives, adaptées à votre profil et à votre projet.',
+      serviceLabel: 'Service',
+      requestLoan: 'Demander ce prêt',
+      amount: 'Montant',
+      duration: 'Durée',
+      rate: 'Taux',
+      includesEyebrow: 'Ce qui est inclus',
+      includesTitle: 'Tous nos prêts, sans surprise',
+      includesSubtitle: "Quel que soit votre projet, nos engagements restent les mêmes : rapidité, transparence et accompagnement.",
+      includes: [
+        'Réponse de principe en 24h',
+        'Avec des frais de dossier',
+        'Remboursement anticipé sans pénalité',
+        'Assurance prêt optionnelle',
+        'Conseiller dédié',
+        'Avec engagement',
+      ],
+      commitmentsEyebrow: 'Nos engagements',
+      commitmentsTitle: 'Pourquoi choisir Prêt Rapide ?',
+      response24: '24h',
+      response24Label: 'Réponse de principe',
+      taeg: '1,8 %',
+      taegLabel: 'TAEG dès',
+      noFees: '0 €',
+      noFeesLabel: 'Frais de dossier',
+      ctaTitle: 'Une question sur nos services ?',
+      ctaDesc: 'Nos conseillers sont à votre écoute pour vous orienter vers la meilleure solution.',
+      callNow: 'Appeler maintenant',
+      formTitle: 'Demande de prêt',
+      formDesc: 'Remplissez ce formulaire pour votre demande de prêt',
+      firstNameLabel: 'Prénom *',
+      firstNamePlaceholder: 'Jean',
+      lastNameLabel: 'Nom *',
+      lastNamePlaceholder: 'Dupont',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'jean.dupont@email.com',
+      phoneLabel: 'Téléphone *',
+      phonePlaceholder: '06 12 34 56 78',
+      countryLabel: 'Pays de résidence *',
+      countryPlaceholder: 'Entrez votre pays',
+      amountLabel: 'Montant souhaité *',
+      amountPlaceholder: 'Entrez le montant',
+      durationLabel: 'Durée (mois) *',
+      durationPlaceholder: 'Entrez la durée en mois',
+      submit: 'Envoyer ma demande',
+      successMsg: 'Votre demande a été envoyée avec succès !',
+    },
+    contact: {
+      eyebrow: 'Contact',
+      heroTitle: 'Parlons de votre projet',
+      heroDesc: "Nos conseillers sont à votre écoute pour étudier votre demande et vous proposer la solution de crédit la mieux adaptée. Réponse de principe en 24h.",
+      phone: 'Téléphone',
+      whatsapp: 'WhatsApp',
+      email: 'Email',
+      callNow: 'Appeler maintenant',
+      chatWhatsapp: 'Discuter sur WhatsApp',
+      sendEmail: 'Envoyer un email',
+      formTitle: 'Demande de prêt en ligne',
+      formDesc: 'Remplissez ce formulaire, nous vous recontactons sous 24h. Sans engagement.',
+      successMsg: 'Votre demande a été envoyée ! Nous vous recontactons très vite.',
+      nameLabel: 'Nom complet *',
+      namePlaceholder: 'Jean Dupont',
+      phoneLabel: 'Téléphone *',
+      phonePlaceholder: '06 12 34 56 78',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'jean.dupont@email.com',
+      countryLabel: 'Pays *',
+      countryPlaceholder: 'Entrez votre pays',
+      amountLabel: 'Montant souhaité',
+      amountPlaceholder: 'Sélectionnez un montant',
+      amounts: ['1 000 € – 10 000 €', '10 000 € – 50 000 €', '50 000 € – 100 000 €', '100 000 € – 500 000 €', 'Plus de 500 000 €'],
+      messageLabel: 'Votre projet',
+      messagePlaceholder: 'Décrivez votre projet en quelques lignes...',
+      submit: 'Envoyer ma demande',
+      formDisclaimer: 'En soumettant ce formulaire, vous acceptez d\'être recontacté par nos conseillers.',
+      agencyTitle: 'Notre agence à Paris',
+      agencyDesc: 'Au cœur du 9e arrondissement, nous vous accueillons du lundi au samedi.',
+      addressLabel: 'Adresse',
+      hoursLabel: 'Horaires',
+      hoursWeek: 'Lun – Ven : 9h00 – 19h00',
+      hoursSat: 'Samedi : 10h00 – 17h00',
+      phoneLabel2: 'Téléphone',
+      emailLabel2: 'Email',
+      seeMap: 'Voir sur la carte',
+      mapClickHint: '75009 Paris — Cliquez pour ouvrir la carte',
+      mapPopupTitle: 'Prêt Rapide — Paris',
+      itinerary: 'Itinéraire Google Maps',
+      callAgency: 'Appeler l\'agence',
+    },
+    servicesData: [
+      { title: 'Prêt Personnel', desc: 'Financez vos projets personnels : voyage, mariage, équipement. Un crédit rapide de 1 000 € à 75 000 € avec des mensualités adaptées à votre budget.', amount: '1 000 € – 75 000 €', duration: '12 à 84 mois', rate: 'TAEG dès 2,9 %' },
+      { title: 'Prêt Immobilier', desc: "Devenez propriétaire ou investissez. Un financement sur mesure pour votre résidence principale, secondaire ou votre projet locatif à Paris et partout en France.", amount: "Jusqu'à 1 000 000 €", duration: '5 à 25 ans', rate: 'TAEG dès 1,8 %' },
+      { title: 'Prêt Auto', desc: "Achetez votre voiture neuve ou d'occasion. Un crédit auto rapide avec une réponse de principe en 24 heures et un déblocage immédiat des fonds.", amount: '3 000 € – 100 000 €', duration: '12 à 72 mois', rate: 'TAEG dès 3,1 %' },
+      { title: 'Rachat de Crédit', desc: "Regroupez vos prêts en un seul et réduisez vos mensualités jusqu'à 60 %. Bénéficiez d'une situation financière allégée et d'un budget plus serein.", amount: "Jusqu'à 200 000 €", duration: "Jusqu'à 12 ans", rate: 'TAEG dès 3,5 %' },
+      { title: 'Prêt Professionnel', desc: 'Développez votre entreprise : trésorerie, équipement, véhicule, investissement. Un accompagnement dédié aux entrepreneurs et PME françaises.', amount: '5 000 € – 500 000 €', duration: '12 à 120 mois', rate: 'TAEG dès 2,5 %' },
+      { title: 'Prêt Travaux', desc: 'Rénovez, aménagez ou agrandissez votre habitat. Un financement dédié à tous vos projets de rénovation avec un suivi de chantier sans souci.', amount: '1 000 € – 60 000 €', duration: '12 à 96 mois', rate: 'TAEG dès 3,0 %' },
+    ],
+  },
+  en: {
+    nav: { home: 'Home', about: 'About', services: 'Services', contact: 'Contact' },
+    brand: { name: 'Fast Loan', tagline: 'Credit Solutions' },
+    footer: {
+      about: 'Your trusted partner for all your financing projects in Paris and throughout France. Fast, transparent solutions tailored to your needs.',
+      navigation: 'Navigation',
+      ourServices: 'Our Services',
+      contactTitle: 'Contact',
+      whatsappLabel: 'WhatsApp',
+      rights: 'All rights reserved.',
+      legal: 'A loan commits you and must be repaid. Check your repayment capacity before committing.',
+    },
+    whatsapp: 'WhatsApp',
+    home: {
+      badge: '#1 fast credit in Paris',
+      heroTitle: 'Your project deserves',
+      heroHighlight: 'fast financing',
+      heroDesc: 'Personal loan, mortgage, auto loan or credit consolidation. Get a preliminary decision in 24 hours and receive your funds in 48h. Simple, transparent and commitment-free.',
+      ctaServices: 'Discover our services',
+      ctaRequest: 'Request a loan',
+      stats: { clients: 'Clients supported', satisfaction: 'Satisfaction rate', response: 'Preliminary decision', credits: 'Loans granted' },
+      advantagesEyebrow: 'Why choose us',
+      advantagesTitle: 'A credit experience designed for you',
+      advantagesSubtitle: 'For over 10 years, we have put our expertise at the service of your projects with speed, transparency and human support.',
+      advantages: [
+        { title: 'Guaranteed speed', desc: 'A preliminary decision in 24h and funds released in 48h.' },
+        { title: '100% secure', desc: 'Your data is protected and encrypted. No leaks possible.' },
+        { title: 'Competitive rates', desc: 'Some of the lowest APRs on the market, from 1.8%.' },
+        { title: 'Human support', desc: 'A dedicated advisor guides you at every step of your project.' },
+        { title: 'Total transparency', desc: 'No hidden fees. You know your total cost from the start.' },
+        { title: 'With commitment', desc: 'Your request is free and commits you to nothing.' },
+      ],
+      servicesEyebrow: 'Our credit solutions',
+      servicesTitle: 'A loan for every project',
+      servicesSubtitle: 'Whether you are buying a house, a car or want to consolidate your loans, we have the solution you need.',
+      viewAllServices: 'View all services',
+      stepsEyebrow: 'How it works',
+      stepsTitle: 'Your loan in 4 simple steps',
+      stepsSubtitle: 'A clear and fast process, from your request to fund release.',
+      steps: [
+        { title: '1. Submit your request', desc: 'Fill out our online form in minutes. Indicate the desired amount and your situation. No commitment.' },
+        { title: '2. Preliminary decision', desc: 'Our advisors analyze your file and send you a preliminary decision within 24 hours, with no hidden fees.' },
+        { title: '3. Sign the contract', desc: 'Sign your loan offer online or in agency. Personalized support at every step of your project.' },
+        { title: '4. Fund release', desc: 'Receive your funds directly in your bank account within 48h after signing. Fast, simple and secure.' },
+      ],
+      trustEyebrow: 'They trust us',
+      trustTitle: 'Thousands of clients have realized their projects',
+      trustDesc: 'We support individuals and professionals in Paris and throughout France in their financing projects. Our priority: your satisfaction.',
+      trustList: [
+        'A team of expert advisors at your service',
+        'Flexible solutions adapted to your profile',
+        'Personalized follow-up from start to finish',
+        'An agency in the heart of Paris, Boulevard Haussmann',
+      ],
+      trustBadge: '"Thanks to Fast Loan, we were able to buy our first home. Exceptional support!"',
+      trustBadgeAuthor: '— Sophie & Marc, Paris 9e',
+      learnMore: 'Learn more about us',
+      ctaTitle: 'Ready to make your project happen?',
+      ctaDesc: 'Contact us today and get a preliminary decision in 24 hours. No commitment.',
+      callNow: 'Send an email',
+      sendEmail: 'Send an email',
+      partnersEyebrow: 'Partners',
+      partnersTitle: 'Our trusted banking partners',
+      partnersDesc: 'We collaborate with the best French banks to offer you the most suitable solutions for your needs.',
+      banks: [
+        { name: 'BNP Paribas', initial: 'B' },
+        { name: 'Crédit Agricole', initial: 'C' },
+        { name: 'LCL', initial: 'L' },
+        { name: 'Boursorama', initial: 'B' },
+        { name: 'La Banque Postale', initial: 'L' },
+        { name: 'Hello bank!', initial: 'H' },
+      ],
+    },
+    about: {
+      eyebrow: 'About us',
+      heroTitle: 'Your trusted credit partner, in the heart of Paris',
+      heroDesc: 'Since 2013, Fast Loan has been supporting individuals and professionals in all their financing projects. Our mission: to make credit accessible, fast and transparent.',
+      storyEyebrow: 'Our story',
+      storyTitle: 'Born in the heart of Paris, serving all of France',
+      storyP1: 'Founded in 2013 at 29 Boulevard Haussmann, Fast Loan was born from a simple conviction: getting a loan should not be an obstacle course. We wanted to create a structure where speed goes hand in hand with transparency, and where every client benefits from real support.',
+      storyP2: 'In over ten years, we have supported more than 15,000 clients and granted over 500 million euros in loans. From personal loans to mortgages, from credit consolidation to professional financing, we cover all your needs.',
+      storyP3: 'Today, our Parisian agency remains our historic heart, but our online services allow us to support clients throughout France, with the same quality standards.',
+      yearsExp: '10+',
+      yearsExpLabel: 'years of experience',
+      missionTitle: 'Our mission',
+      missionDesc: 'Making credit accessible to all, quickly and transparently. We democratize access to financing so that everyone can realize their projects.',
+      visionTitle: 'Our vision',
+      visionDesc: 'Becoming the reference for fast credit in France, combining the human expertise of our advisors with the simplicity of an intuitive online platform.',
+      commitmentTitle: 'Our commitment',
+      commitmentDesc: '98% satisfied clients. We commit to speed, transparency and personalized support at every step of your project.',
+      valuesEyebrow: 'Our values',
+      valuesTitle: 'What guides us every day',
+      values: [
+        { title: 'Integrity', desc: 'We act with honesty and transparency, with no hidden fees or bad surprises.' },
+        { title: 'Proximity', desc: 'Every client is unique. We listen to your needs and adapt our solutions to your situation.' },
+        { title: 'Responsiveness', desc: 'Speed is our signature. A response in 24h, funds in 48h.' },
+        { title: 'Performance', desc: 'Some of the lowest rates on the market, for ever lighter monthly payments.' },
+      ],
+      timelineEyebrow: 'Our journey',
+      timelineTitle: 'Over 10 years of expertise at your service',
+      milestones: [
+        { year: '2013', text: 'Creation of Fast Loan in the heart of Paris, Boulevard Haussmann.' },
+        { year: '2016', text: 'Over 5,000 clients supported. Launch of credit consolidation service.' },
+        { year: '2019', text: 'Launch of the online platform. 10,000 clients and €200M in loans granted.' },
+        { year: '2022', text: '"Credit Excellence" certification and national expansion.' },
+        { year: '2026', text: 'Over 15,000 clients supported and €500M in loans granted.' },
+      ],
+      testimonialsEyebrow: 'Testimonials',
+      testimonialsTitle: 'What our clients say about us',
+      testimonials: [
+        { name: 'Sophie L.', role: 'Homeowner, Paris 9e', text: 'A mortgage obtained in less than a week. The team was remarkably efficient. I highly recommend Fast Loan.' },
+        { name: 'James W.', role: 'Entrepreneur, London', text: 'Excellent service for my business loan. Competitive rates and perfect support. I highly recommend!' },
+        { name: 'Carlos G.', role: 'Architect, Madrid', text: 'The loan for my construction project was approved quickly. Exceptional service and very professional.' },
+        { name: 'Hans M.', role: 'Engineer, Berlin', text: 'Fast and reliable loan approval. The process was transparent and customer service was top-notch. Highly recommended!' },
+      ],
+      ctaTitle: 'Join our 15,000 satisfied clients',
+      ctaDesc: 'Trust your project to experts who are dedicated to supporting you.',
+      contactUs: 'Contact us',
+    },
+    services: {
+      eyebrow: 'Our services',
+      heroTitle: 'Credit solutions for every need',
+      heroDesc: 'From personal loans to credit consolidation, discover our flexible and competitive solutions, adapted to your profile and your project.',
+      serviceLabel: 'Service',
+      requestLoan: 'Request this loan',
+      amount: 'Amount',
+      duration: 'Duration',
+      rate: 'Rate',
+      includesEyebrow: 'What is included',
+      includesTitle: 'All our loans, no surprises',
+      includesSubtitle: 'Whatever your project, our commitments remain the same: speed, transparency and support.',
+      includes: [
+        'Preliminary decision in 24h',
+        'With application fees',
+        'Early repayment without penalty',
+        'Optional loan insurance',
+        'Dedicated advisor',
+        'With commitment',
+      ],
+      commitmentsEyebrow: 'Our commitments',
+      commitmentsTitle: 'Why choose Fast Loan?',
+      response24: '24h',
+      response24Label: 'Preliminary decision',
+      taeg: '1.8%',
+      taegLabel: 'APR from',
+      noFees: '€0',
+      noFeesLabel: 'Application fees',
+      ctaTitle: 'A question about our services?',
+      ctaDesc: 'Our advisors are available to guide you to the best solution.',
+      callNow: 'Call now',
+      formTitle: 'Loan Request',
+      formDesc: 'Fill out this form for your loan request',
+      firstNameLabel: 'First Name *',
+      firstNamePlaceholder: 'John',
+      lastNameLabel: 'Last Name *',
+      lastNamePlaceholder: 'Smith',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'john.smith@email.com',
+      phoneLabel: 'Phone *',
+      phonePlaceholder: '06 12 34 56 78',
+      countryLabel: 'Country of Residence *',
+      countryPlaceholder: 'Enter your country',
+      amountLabel: 'Desired Amount *',
+      amountPlaceholder: 'Enter the amount',
+      durationLabel: 'Duration (months) *',
+      durationPlaceholder: 'Enter duration in months',
+      submit: 'Send my request',
+      successMsg: 'Your request has been sent successfully!',
+    },
+    contact: {
+      eyebrow: 'Contact',
+      heroTitle: "Let's talk about your project",
+      heroDesc: 'Our advisors are available to review your request and offer you the best-suited credit solution. Preliminary decision in 24h.',
+      phone: 'Phone',
+      whatsapp: 'WhatsApp',
+      email: 'Email',
+      callNow: 'Call now',
+      chatWhatsapp: 'Chat on WhatsApp',
+      sendEmail: 'Send an email',
+      formTitle: 'Online loan request',
+      formDesc: 'Fill out this form, we will contact you within 24h. No commitment.',
+      successMsg: 'Your request has been sent! We will contact you very soon.',
+      nameLabel: 'Full name *',
+      namePlaceholder: 'John Smith',
+      phoneLabel: 'Phone *',
+      phonePlaceholder: '06 12 34 56 78',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'john.smith@email.com',
+      countryLabel: 'Country *',
+      countryPlaceholder: 'Enter your country',
+      amountLabel: 'Desired amount',
+      amountPlaceholder: 'Select an amount',
+      amounts: ['€1,000 – €10,000', '€10,000 – €50,000', '€50,000 – €100,000', '€100,000 – €500,000', 'More than €500,000'],
+      messageLabel: 'Your project',
+      messagePlaceholder: 'Describe your project in a few lines...',
+      submit: 'Send my request',
+      formDisclaimer: 'By submitting this form, you agree to be contacted by our advisors.',
+      agencyTitle: 'Our agency in Paris',
+      agencyDesc: 'In the heart of the 9th arrondissement, we welcome you Monday to Saturday.',
+      addressLabel: 'Address',
+      hoursLabel: 'Hours',
+      hoursWeek: 'Mon – Fri: 9:00 AM – 7:00 PM',
+      hoursSat: 'Saturday: 10:00 AM – 5:00 PM',
+      phoneLabel2: 'Phone',
+      emailLabel2: 'Email',
+      seeMap: 'See on map',
+      mapClickHint: '75009 Paris — Click to open the map',
+      mapPopupTitle: 'Fast Loan — Paris',
+      itinerary: 'Google Maps directions',
+      callAgency: 'Call the agency',
+    },
+    servicesData: [
+      { title: 'Personal Loan', desc: 'Finance your personal projects: travel, wedding, equipment. A fast credit from €1,000 to €75,000 with monthly payments adapted to your budget.', amount: '€1,000 – €75,000', duration: '12 to 84 months', rate: 'APR from 2.9%' },
+      { title: 'Mortgage Loan', desc: 'Become a homeowner or invest. Tailored financing for your primary residence, secondary home or rental project in Paris and throughout France.', amount: 'Up to €1,000,000', duration: '5 to 25 years', rate: 'APR from 1.8%' },
+      { title: 'Auto Loan', desc: 'Buy your new or used car. A fast auto loan with a preliminary decision in 24 hours and immediate fund release.', amount: '€3,000 – €100,000', duration: '12 to 72 months', rate: 'APR from 3.1%' },
+      { title: 'Credit Consolidation', desc: 'Combine your loans into one and reduce your monthly payments by up to 60%. Benefit from a lighter financial situation and a more peaceful budget.', amount: 'Up to €200,000', duration: 'Up to 12 years', rate: 'APR from 3.5%' },
+      { title: 'Business Loan', desc: 'Grow your business: cash flow, equipment, vehicle, investment. Dedicated support for entrepreneurs and French SMEs.', amount: '€5,000 – €500,000', duration: '12 to 120 months', rate: 'APR from 2.5%' },
+      { title: 'Home Improvement Loan', desc: 'Renovate, furnish or expand your home. Dedicated financing for all your renovation projects with worry-free follow-up.', amount: '€1,000 – €60,000', duration: '12 to 96 months', rate: 'APR from 3.0%' },
+    ],
+  },
+  es: {
+    nav: { home: 'Inicio', about: 'Sobre nosotros', services: 'Servicios', contact: 'Contacto' },
+    brand: { name: 'Préstamo Rápido', tagline: 'Soluciones de Crédito' },
+    footer: {
+      about: 'Su socio de confianza para todos sus proyectos de financiación en París y en toda Francia. Soluciones rápidas, transparentes y adaptadas a sus necesidades.',
+      navigation: 'Navegación',
+      ourServices: 'Nuestros Servicios',
+      contactTitle: 'Contacto',
+      whatsappLabel: 'WhatsApp',
+      rights: 'Todos los derechos reservados.',
+      legal: 'Un crédito le compromete y debe ser reembolsado. Verifique su capacidad de reembolso antes de comprometerse.',
+    },
+    whatsapp: 'WhatsApp',
+    home: {
+      badge: 'Nº1 en crédito rápido en París',
+      heroTitle: 'Su proyecto merece',
+      heroHighlight: 'una financiación rápida',
+      heroDesc: 'Préstamo personal, hipoteca, préstamo auto o reagrupación de créditos. Obtenga una respuesta preliminar en 24 horas y reciba sus fondos en 48h. Simple, transparente y sin compromiso.',
+      ctaServices: 'Descubrir nuestros servicios',
+      ctaRequest: 'Solicitar un préstamo',
+      stats: { clients: 'Clientes atendidos', satisfaction: 'Tasa de satisfacción', response: 'Respuesta preliminar', credits: 'Préstamos concedidos' },
+      advantagesEyebrow: 'Por qué elegirnos',
+      advantagesTitle: 'Una experiencia de crédito pensada para usted',
+      advantagesSubtitle: 'Desde hace más de 10 años, ponemos nuestra experiencia al servicio de sus proyectos con rapidez, transparencia y un acompañamiento humano.',
+      advantages: [
+        { title: 'Rapidez garantizada', desc: 'Una respuesta preliminar en 24h y liberación de fondos en 48h.' },
+        { title: '100% seguro', desc: 'Sus datos están protegidos y cifrados. No hay posibilidad de fugas.' },
+        { title: 'Tasas competitivas', desc: 'Algunas de las TAE más bajas del mercado, desde 1,8%.' },
+        { title: 'Acompañamiento humano', desc: 'Un asesor dedicado le guía en cada paso de su proyecto.' },
+        { title: 'Transparencia total', desc: 'Sin comisiones ocultas. Conoce su coste total desde el principio.' },
+        { title: 'Con compromiso', desc: 'Su solicitud es gratuita y no le compromete a nada.' },
+      ],
+      servicesEyebrow: 'Nuestras soluciones de crédito',
+      servicesTitle: 'Un préstamo para cada proyecto',
+      servicesSubtitle: 'Ya sea que compre una casa, un coche o quiera agrupar sus créditos, tenemos la solución que necesita.',
+      viewAllServices: 'Ver todos los servicios',
+      stepsEyebrow: 'Cómo funciona',
+      stepsTitle: 'Su préstamo en 4 pasos sencillos',
+      stepsSubtitle: 'Un proceso claro y rápido, desde su solicitud hasta la liberación de fondos.',
+      steps: [
+        { title: '1. Presente su solicitud', desc: 'Rellene nuestro formulario online en minutos. Indique el importe deseado y su situación. Sin compromiso.' },
+        { title: '2. Respuesta preliminar', desc: 'Nuestros asesores analizan su expediente y le envían una respuesta preliminar en 24 horas, sin comisiones ocultas.' },
+        { title: '3. Firma del contrato', desc: 'Firme su oferta de préstamo online o en agencia. Acompañamiento personalizado en cada etapa de su proyecto.' },
+        { title: '4. Liberación de fondos', desc: 'Reciba sus fondos directamente en su cuenta bancaria en 48h tras la firma. Rápido, simple y seguro.' },
+      ],
+      trustEyebrow: 'Confían en nosotros',
+      trustTitle: 'Miles de clientes ya han realizado sus proyectos',
+      trustDesc: 'Acompañamos a particulares y profesionales de París y de toda Francia en sus proyectos de financiación. Nuestra prioridad: su satisfacción.',
+      trustList: [
+        'Un equipo de asesores expertos a su servicio',
+        'Soluciones flexibles adaptadas a su perfil',
+        'Seguimiento personalizado de principio a fin',
+        'Una agencia en el corazón de París, Boulevard Haussmann',
+      ],
+      trustBadge: '"Gracias a Préstamo Rápido, pudimos comprar nuestra primera casa. ¡Un acompañamiento excepcional!"',
+      trustBadgeAuthor: '— Sophie & Marc, París 9e',
+      learnMore: 'Saber más sobre nosotros',
+      ctaTitle: '¿Listo para hacer realidad su proyecto?',
+      ctaDesc: 'Contáctenos hoy y obtenga una respuesta preliminar en 24 horas. Sin compromiso.',
+      callNow: 'Enviar un email',
+      sendEmail: 'Enviar un email',
+      partnersEyebrow: 'Socios',
+      partnersTitle: 'Nuestros socios bancarios de confianza',
+      partnersDesc: 'Colaboramos con los mejores bancos franceses para ofrecerle las soluciones más adaptadas a sus necesidades.',
+      banks: [
+        { name: 'BNP Paribas', initial: 'B' },
+        { name: 'Crédit Agricole', initial: 'C' },
+        { name: 'LCL', initial: 'L' },
+        { name: 'Boursorama', initial: 'B' },
+        { name: 'La Banque Postale', initial: 'L' },
+        { name: 'Hello bank!', initial: 'H' },
+      ],
+    },
+    about: {
+      eyebrow: 'Sobre nosotros',
+      heroTitle: 'Su socio de confianza para el crédito, en el corazón de París',
+      heroDesc: 'Desde 2013, Préstamo Rápido acompaña a particulares y profesionales en todos sus proyectos de financiación. Nuestra misión: hacer el crédito accesible, rápido y transparente.',
+      storyEyebrow: 'Nuestra historia',
+      storyTitle: 'Nacido en el corazón de París, al servicio de toda Francia',
+      storyP1: 'Fundada en 2013 en el 29 Boulevard Haussmann, Préstamo Rápido nació de una convicción simple: obtener un crédito no debería ser un obstáculo. Quisimos crear una estructura donde la rapidez fuera sinónimo de transparencia, y donde cada cliente se beneficiara de un verdadero acompañamiento.',
+      storyP2: 'En más de diez años, hemos acompañado a más de 15.000 clientes y concedido más de 500 millones de euros en préstamos. Del préstamo personal a la hipoteca, de la reagrupación de créditos a la financiación profesional, cubrimos todas sus necesidades.',
+      storyP3: 'Hoy, nuestra agencia parisina sigue siendo nuestro corazón histórico, pero nuestros servicios online nos permiten acompañar a clientes en toda Francia, con la misma exigencia de calidad.',
+      yearsExp: '10+',
+      yearsExpLabel: 'años de experiencia',
+      missionTitle: 'Nuestra misión',
+      missionDesc: 'Hacer el crédito accesible para todos, rápida y transparentemente. Democratizamos el acceso a la financiación para que cada uno pueda realizar sus proyectos.',
+      visionTitle: 'Nuestra visión',
+      visionDesc: 'Convertirnos en la referencia del crédito rápido en Francia, combinando la experiencia humana de nuestros asesores con la simplicidad de una plataforma online intuitiva.',
+      commitmentTitle: 'Nuestro compromiso',
+      commitmentDesc: '98% de clientes satisfechos. Nos comprometemos en la rapidez, la transparencia y un acompañamiento personalizado en cada etapa de su proyecto.',
+      valuesEyebrow: 'Nuestros valores',
+      valuesTitle: 'Lo que nos guía cada día',
+      values: [
+        { title: 'Integridad', desc: 'Actuamos con honestidad y transparencia, sin comisiones ocultas ni malas sorpresas.' },
+        { title: 'Proximidad', desc: 'Cada cliente es único. Escuchamos sus necesidades y adaptamos nuestras soluciones a su situación.' },
+        { title: 'Reactividad', desc: 'La rapidez es nuestra firma. Una respuesta en 24h, fondos en 48h.' },
+        { title: 'Rendimiento', desc: 'Algunas de las tasas más bajas del mercado, para cuotas mensuales cada vez más ligeras.' },
+      ],
+      timelineEyebrow: 'Nuestro recorrido',
+      timelineTitle: 'Más de 10 años de experiencia a su servicio',
+      milestones: [
+        { year: '2013', text: 'Creación de Préstamo Rápido en el corazón de París, Boulevard Haussmann.' },
+        { year: '2016', text: 'Más de 5.000 clientes atendidos. Apertura del servicio de reagrupación de créditos.' },
+        { year: '2019', text: 'Lanzamiento de la plataforma online. 10.000 clientes y 200 M€ en préstamos concedidos.' },
+        { year: '2022', text: 'Certificación "Excelencia del Crédito" y expansión nacional.' },
+        { year: '2026', text: 'Más de 15.000 clientes atendidos y 500 M€ en préstamos concedidos.' },
+      ],
+      testimonialsEyebrow: 'Testimonios',
+      testimonialsTitle: 'Lo que nuestros clientes dicen de nosotros',
+      testimonials: [
+        { name: 'Sophie L.', role: 'Propietaria, París 9e', text: 'Una hipoteca obtenida en menos de una semana. El equipo fue remarkablemente eficiente. Recomiendo Préstamo Rápido.' },
+        { name: 'James W.', role: 'Emprendedor, Londres', text: 'Excelente servicio para mi préstamo empresarial. Tasas competitivas y apoyo perfecto. ¡Lo recomiendo!' },
+        { name: 'Carlos G.', role: 'Arquitecto, Madrid', text: 'El préstamo para mi proyecto de construcción fue aprobado rápidamente. Servicio excepcional y muy profesional.' },
+        { name: 'Hans M.', role: 'Ingeniero, Berlín', text: 'Aprobación de préstamo rápida y fiable. El proceso fue transparente y el servicio al cliente de primera categoría. ¡Muy recomendable!' },
+      ],
+      ctaTitle: 'Únase a nuestros 15.000 clientes satisfechos',
+      ctaDesc: 'Confíe su proyecto a expertos que se dedican a acompañarle.',
+      contactUs: 'Contáctenos',
+    },
+    services: {
+      eyebrow: 'Nuestros servicios',
+      heroTitle: 'Soluciones de crédito para cada necesidad',
+      heroDesc: 'Del préstamo personal a la reagrupación de créditos, descubra nuestras soluciones flexibles y competitivas, adaptadas a su perfil y a su proyecto.',
+      serviceLabel: 'Servicio',
+      requestLoan: 'Solicitar este préstamo',
+      amount: 'Importe',
+      duration: 'Duración',
+      rate: 'Tasa',
+      includesEyebrow: 'Lo que está incluido',
+      includesTitle: 'Todos nuestros préstamos, sin sorpresas',
+      includesSubtitle: 'Sea cual sea su proyecto, nuestros compromisos siguen siendo los mismos: rapidez, transparencia y acompañamiento.',
+      includes: [
+        'Respuesta preliminar en 24h',
+        'Con comisiones de apertura',
+        'Reembolso anticipado sin penalización',
+        'Seguro de préstamo opcional',
+        'Asesor dedicado',
+        'Con compromiso',
+      ],
+      commitmentsEyebrow: 'Nuestros compromisos',
+      commitmentsTitle: '¿Por qué elegir Préstamo Rápido?',
+      response24: '24h',
+      response24Label: 'Respuesta preliminar',
+      taeg: '1,8%',
+      taegLabel: 'TAE desde',
+      noFees: '0 €',
+      noFeesLabel: 'Comisiones de apertura',
+      ctaTitle: '¿Una pregunta sobre nuestros servicios?',
+      ctaDesc: 'Nuestros asesores están a su disposición para orientarle hacia la mejor solución.',
+      callNow: 'Llamar ahora',
+      formTitle: 'Solicitud de préstamo',
+      formDesc: 'Rellene este formulario para su solicitud de préstamo',
+      firstNameLabel: 'Nombre *',
+      firstNamePlaceholder: 'Juan',
+      lastNameLabel: 'Apellido *',
+      lastNamePlaceholder: 'García',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'juan.garcia@email.com',
+      phoneLabel: 'Teléfono *',
+      phonePlaceholder: '06 12 34 56 78',
+      countryLabel: 'País de residencia *',
+      countryPlaceholder: 'Ingrese su país',
+      amountLabel: 'Importe deseado *',
+      amountPlaceholder: 'Ingrese el importe',
+      durationLabel: 'Duración (meses) *',
+      durationPlaceholder: 'Ingrese la duración en meses',
+      submit: 'Enviar mi solicitud',
+      successMsg: '¡Su solicitud ha sido enviada con éxito!',
+    },
+    contact: {
+      eyebrow: 'Contacto',
+      heroTitle: 'Hablemos de su proyecto',
+      heroDesc: 'Nuestros asesores están a su disposición para estudiar su solicitud y ofrecerle la solución de crédito mejor adaptada. Respuesta preliminar en 24h.',
+      phone: 'Teléfono',
+      whatsapp: 'WhatsApp',
+      email: 'Email',
+      callNow: 'Llamar ahora',
+      chatWhatsapp: 'Chatear en WhatsApp',
+      sendEmail: 'Enviar un email',
+      formTitle: 'Solicitud de préstamo online',
+      formDesc: 'Rellene este formulario, le contactaremos en 24h. Sin compromiso.',
+      successMsg: '¡Su solicitud ha sido enviada! Le contactaremos muy pronto.',
+      nameLabel: 'Nombre completo *',
+      namePlaceholder: 'Juan García',
+      phoneLabel: 'Teléfono *',
+      phonePlaceholder: '06 12 34 56 78',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'juan.garcia@email.com',
+      countryLabel: 'País *',
+      countryPlaceholder: 'Ingrese su país',
+      amountLabel: 'Importe deseado',
+      amountPlaceholder: 'Seleccione un importe',
+      amounts: ['1.000 € – 10.000 €', '10.000 € – 50.000 €', '50.000 € – 100.000 €', '100.000 € – 500.000 €', 'Más de 500.000 €'],
+      messageLabel: 'Su proyecto',
+      messagePlaceholder: 'Describa su proyecto en pocas líneas...',
+      submit: 'Enviar mi solicitud',
+      formDisclaimer: 'Al enviar este formulario, acepta ser contactado por nuestros asesores.',
+      agencyTitle: 'Nuestra agencia en París',
+      agencyDesc: 'En el corazón del 9º distrito, le recibimos de lunes a sábado.',
+      addressLabel: 'Dirección',
+      hoursLabel: 'Horario',
+      hoursWeek: 'Lun – Vie: 9:00 – 19:00',
+      hoursSat: 'Sábado: 10:00 – 17:00',
+      phoneLabel2: 'Teléfono',
+      emailLabel2: 'Email',
+      seeMap: 'Ver en el mapa',
+      mapClickHint: '75009 París — Haga clic para abrir el mapa',
+      mapPopupTitle: 'Préstamo Rápido — París',
+      itinerary: 'Indicaciones de Google Maps',
+      callAgency: 'Llamar a la agencia',
+    },
+    servicesData: [
+      { title: 'Préstamo Personal', desc: 'Financie sus proyectos personales: viaje, boda, equipamiento. Un crédito rápido de 1.000 € a 75.000 € con cuotas adaptadas a su presupuesto.', amount: '1.000 € – 75.000 €', duration: '12 a 84 meses', rate: 'TAE desde 2,9%' },
+      { title: 'Préstamo Hipotecario', desc: 'Conviértase en propietario o invierta. Una financiación a medida para su residencia principal, secundaria o su proyecto de alquiler en París y en toda Francia.', amount: 'Hasta 1.000.000 €', duration: '5 a 25 años', rate: 'TAE desde 1,8%' },
+      { title: 'Préstamo Auto', desc: 'Compre su coche nuevo o de ocasión. Un crédito auto rápido con una respuesta preliminar en 24 horas y liberación inmediata de fondos.', amount: '3.000 € – 100.000 €', duration: '12 a 72 meses', rate: 'TAE desde 3,1%' },
+      { title: 'Reagrupación de Créditos', desc: 'Agrupe sus préstamos en uno solo y reduzca sus cuotas hasta un 60 %. Benefíciese de una situación financiera más ligera y un presupuesto más tranquilo.', amount: 'Hasta 200.000 €', duration: 'Hasta 12 años', rate: 'TAE desde 3,5%' },
+      { title: 'Préstamo Profesional', desc: 'Desarrolle su empresa: tesorería, equipamiento, vehículo, inversión. Un acompañamiento dedicado a emprendedores y pymes francesas.', amount: '5.000 € – 500.000 €', duration: '12 a 120 meses', rate: 'TAE desde 2,5%' },
+      { title: 'Préstamo Reforma', desc: 'Renueve, amueble o amplíe su vivienda. Una financiación dedicada a todos sus proyectos de reforma con un seguimiento sin preocupaciones.', amount: '1.000 € – 60.000 €', duration: '12 a 96 meses', rate: 'TAE desde 3,0%' },
+    ],
+  },
+  de: {
+    nav: { home: 'Startseite', about: 'Über uns', services: 'Leistungen', contact: 'Kontakt' },
+    brand: { name: 'Schnellkredit', tagline: 'Kreditlösungen' },
+    footer: {
+      about: 'Ihr vertrauenswürdiger Partner für alle Ihre Finanzierungsprojekte in Paris und ganz Frankreich. Schnelle, transparente und bedarfsgerechte Lösungen.',
+      navigation: 'Navigation',
+      ourServices: 'Unsere Leistungen',
+      contactTitle: 'Kontakt',
+      whatsappLabel: 'WhatsApp',
+      rights: 'Alle Rechte vorbehalten.',
+      legal: 'Ein Kredit verpflichtet Sie und muss zurückgezahlt werden. Prüfen Sie Ihre Rückzahlungsfähigkeit, bevor Sie sich verpflichten.',
+    },
+    whatsapp: 'WhatsApp',
+    home: {
+      badge: 'Nr. 1 für Schnellkredite in Paris',
+      heroTitle: 'Ihr Projekt verdient',
+      heroHighlight: 'schnelle Finanzierung',
+      heroDesc: 'Persönlicher Kredit, Hypothek, Autokredit oder Kreditaufnahme. Erhalten Sie eine Vorabentscheidung in 24 Stunden und erhalten Sie Ihre Mittel in 48 Std. Einfach, transparent und unverbindlich.',
+      ctaServices: 'Unsere Leistungen entdecken',
+      ctaRequest: 'Kredit anfordern',
+      stats: { clients: 'Betreute Kunden', satisfaction: 'Zufriedenheitsquote', response: 'Vorabentscheidung', credits: 'Vergebene Kredite' },
+      advantagesEyebrow: 'Warum uns wählen',
+      advantagesTitle: 'Eine Kreditexperience für Sie gestaltet',
+      advantagesSubtitle: 'Seit über 10 Jahren setzen wir unsere Expertise für Ihre Projekte mit Geschwindigkeit, Transparenz und persönlicher Betreuung ein.',
+      advantages: [
+        { title: 'Garantierte Geschwindigkeit', desc: 'Eine Vorabentscheidung in 24 Std. und Auszahlung in 48 Std.' },
+        { title: '100% sicher', desc: 'Ihre Daten sind geschützt und verschlüsselt. Keine Datenlecks möglich.' },
+        { title: 'Wettbewerbsfähige Zinsen', desc: 'Some of the lowest APRs on the market, from 1.8%.', },
+        { title: 'Menschliche Betreuung', desc: 'Ein persönlicher Berater begleitet Sie bei jedem Schritt Ihres Projekts.' },
+        { title: 'Volle Transparenz', desc: 'Keine versteckten Gebühren. Sie kennen Ihre Gesamtkosten von Anfang an.' },
+        { title: 'Mit Verpflichtung', desc: 'Ihre Anfrage ist kostenlos und unverbindlich.' },
+      ],
+      servicesEyebrow: 'Unsere Kreditlösungen',
+      servicesTitle: 'Ein Kredit für jedes Projekt',
+      servicesSubtitle: 'Egal ob Sie ein Haus, ein Auto kaufen oder Ihre Kredite konsolidieren möchten — wir haben die passende Lösung.',
+      viewAllServices: 'Alle Leistungen ansehen',
+      stepsEyebrow: 'So funktioniert es',
+      stepsTitle: 'Ihr Kredit in 4 einfachen Schritten',
+      stepsSubtitle: 'Ein klarer und schneller Prozess, von Ihrer Anfrage bis zur Auszahlung.',
+      steps: [
+        { title: '1. Anfrage einreichen', desc: 'Füllen Sie unser Online-Formular in wenigen Minuten aus. Geben Sie den gewünschten Betrag und Ihre Situation an. Unverbindlich.' },
+        { title: '2. Vorabentscheidung', desc: 'Unsere Berater analysieren Ihre Unterlagen und senden Ihnen innerhalb von 24 Stunden eine Vorabentscheidung, ohne versteckte Gebühren.' },
+        { title: '3. Vertrag unterzeichnen', desc: 'Unterzeichnen Sie Ihr Kreditangebot online oder in der Filiale. Persönliche Betreuung bei jedem Schritt Ihres Projekts.' },
+        { title: '4. Auszahlung', desc: 'Erhalten Sie Ihre Mittel direkt auf Ihr Bankkonto innerhalb von 48 Std. nach Unterzeichnung. Schnell, einfach und sicher.' },
+      ],
+      trustEyebrow: 'Sie vertrauen uns',
+      trustTitle: 'Tausende Kunden haben ihre Projekte realisiert',
+      trustDesc: 'Wir unterstützen Privatpersonen und Unternehmen in Paris und ganz Frankreich bei ihren Finanzierungsprojekten. Unsere Priorität: Ihre Zufriedenheit.',
+      trustList: [
+        'Ein Team erfahrener Berater für Sie',
+        'Flexible Lösungen, angepasst an Ihr Profil',
+        'Persönliche Betreuung von Anfang bis Ende',
+        'Eine Filiale im Herzen von Paris, Boulevard Haussmann',
+      ],
+      trustBadge: '"Dank Schnellkredit konnten wir unser erstes Haus kaufen. Hervorragende Betreuung!"',
+      trustBadgeAuthor: '— Sophie & Marc, Paris 9e',
+      learnMore: 'Mehr über uns erfahren',
+      ctaTitle: 'Bereit, Ihr Projekt zu verwirklichen?',
+      ctaDesc: 'Kontaktieren Sie uns noch heute und erhalten Sie eine Vorabentscheidung in 24 Stunden. Unverbindlich.',
+      callNow: 'E-Mail senden',
+      sendEmail: 'E-Mail senden',
+      partnersEyebrow: 'Partner',
+      partnersTitle: 'Unsere vertrauenswürdigen Bankpartner',
+      partnersDesc: 'Wir arbeiten mit den besten französischen Banken zusammen, um Ihnen die am besten geeigneten Lösungen zu bieten.',
+      banks: [
+        { name: 'BNP Paribas', initial: 'B' },
+        { name: 'Crédit Agricole', initial: 'C' },
+        { name: 'LCL', initial: 'L' },
+        { name: 'Boursorama', initial: 'B' },
+        { name: 'La Banque Postale', initial: 'L' },
+        { name: 'Hello bank!', initial: 'H' },
+      ],
+    },
+    about: {
+      eyebrow: 'Über uns',
+      heroTitle: 'Ihr vertrauenswürdiger Kreditpartner im Herzen von Paris',
+      heroDesc: 'Seit 2013 begleitet Schnellkredit Privatpersonen und Unternehmen bei all ihren Finanzierungsprojekten. Unsere Mission: Kredite zugänglich, schnell und transparent zu machen.',
+      storyEyebrow: 'Unsere Geschichte',
+      storyTitle: 'Im Herzen von Paris geboren, im Dienst ganz Frankreichs',
+      storyP1: 'Gegründet 2013 am 29 Boulevard Haussmann, entstand Schnellkredit aus der einfachen Überzeugung: einen Kredit zu bekommen, sollte kein Hindernislauf sein. Wir wollten eine Struktur schaffen, in der Geschwindigkeit mit Transparenz einhergeht und jeder Kunde echte Betreuung erfährt.',
+      storyP2: 'In über zehn Jahren haben wir mehr als 15.000 Kunden betreut und über 500 Millionen Euro an Krediten vergeben. Vom Persönlichkredit bis zur Hypothek, von der Kreditkonsolidierung bis zur Unternehmensfinanzierung — wir decken alle Ihre Bedürfnisse ab.',
+      storyP3: 'Heute bleibt unsere Pariser Filiale unser historisches Herz, aber unsere Online-Dienste ermöglichen es uns, Kunden in ganz Frankreich mit denselben Qualitätsstandards zu betreuen.',
+      yearsExp: '10+',
+      yearsExpLabel: 'Jahre Erfahrung',
+      missionTitle: 'Unsere Mission',
+      missionDesc: 'Kredite für alle zugänglich machen, schnell und transparent. Wir demokratisieren den Zugang zu Finanzierung, damit jeder seine Projekte realisieren kann.',
+      visionTitle: 'Unsere Vision',
+      visionDesc: 'Die Referenz für Schnellkredite in Frankreich zu werden, indem wir die menschliche Expertise unserer Berater mit der Einfachheit einer intuitiven Online-Plattform verbinden.',
+      commitmentTitle: 'Unser Engagement',
+      commitmentDesc: '98% zufriedene Kunden. Wir verpflichten uns zu Geschwindigkeit, Transparenz und persönlicher Betreuung bei jedem Schritt Ihres Projekts.',
+      valuesEyebrow: 'Unsere Werte',
+      valuesTitle: 'Was uns jeden Tag leitet',
+      values: [
+        { title: 'Integrität', desc: 'Wir handeln mit Ehrlichkeit und Transparenz, ohne versteckte Gebühren oder böse Überraschungen.' },
+        { title: 'Nähe', desc: 'Jeder Kunde ist einzigartig. Wir hören Ihren Bedürfnissen zu und passen unsere Lösungen an Ihre Situation an.' },
+        { title: 'Reaktionsschnelligkeit', desc: 'Geschwindigkeit ist unsere Signatur. Eine Antwort in 24 Std., Mittel in 48 Std.' },
+        { title: 'Leistung', desc: 'Einige der niedrigsten Zinsen am Markt, für immer leichtere monatliche Raten.' },
+      ],
+      timelineEyebrow: 'Unser Werdegang',
+      timelineTitle: 'Über 10 Jahre Expertise für Sie',
+      milestones: [
+        { year: '2013', text: 'Gründung von Schnellkredit im Herzen von Paris, Boulevard Haussmann.' },
+        { year: '2016', text: 'Über 5.000 betreute Kunden. Eröffnung des Kreditkonsolidierungs-Services.' },
+        { year: '2019', text: 'Start der Online-Plattform. 10.000 Kunden und 200 Mio. € vergebene Kredite.' },
+        { year: '2022', text: '"Kredit-Exzellenz"-Zertifizierung und nationale Expansion.' },
+        { year: '2026', text: 'Über 15.000 betreute Kunden und 500 Mio. € vergebene Kredite.' },
+      ],
+      testimonialsEyebrow: 'Erfahrungsberichte',
+      testimonialsTitle: 'Was unsere Kunden über uns sagen',
+      testimonials: [
+        { name: 'Sophie L.', role: 'Hausbesitzerin, Paris 9e', text: 'Eine Hypothek in weniger als einer Woche erhalten. Das Team war bemerkenswert effizient. Ich empfehle Schnellkredit sehr.' },
+        { name: 'James W.', role: 'Unternehmer, London', text: 'Hervorragender Service für meinen Geschäftskredit. Wettbewerbsfähige Zinsen und perfekte Betreuung. Sehr empfehlenswert!' },
+        { name: 'Carlos G.', role: 'Architekt, Madrid', text: 'Der Kredit für mein Bauprojekt wurde schnell genehmigt. Ausgezeichneter Service und sehr professionell.' },
+        { name: 'Hans M.', role: 'Ingenieur, Berlin', text: 'Schnelle und zuverlässige Kreditgenehmigung. Der Prozess war transparent und der Kundenservice erstklassig. Sehr empfehlenswert!' },
+      ],
+      ctaTitle: 'Werden Sie einer von 15.000 zufriedenen Kunden',
+      ctaDesc: 'Vertrauen Sie Ihr Projekt Experten an, die sich der Betreuung verschrieben haben.',
+      contactUs: 'Kontaktieren Sie uns',
+    },
+    services: {
+      eyebrow: 'Unsere Leistungen',
+      heroTitle: 'Kreditlösungen für jedes Bedürfnis',
+      heroDesc: 'Vom Persönlichkredit bis zur Kreditkonsolidierung — entdecken Sie unsere flexiblen und wettbewerbsfähigen Lösungen, angepasst an Ihr Profil und Ihr Projekt.',
+      serviceLabel: 'Leistung',
+      requestLoan: 'Diesen Kredit anfordern',
+      amount: 'Betrag',
+      duration: 'Laufzeit',
+      rate: 'Zinssatz',
+      includesEyebrow: 'Was enthalten ist',
+      includesTitle: 'Alle unsere Kredite, ohne Überraschungen',
+      includesSubtitle: 'Welches Projekt auch immer Sie haben — unsere Verpflichtungen bleiben dieselben: Geschwindigkeit, Transparenz und Betreuung.',
+      includes: [
+        'Vorabentscheidung in 24 Std.',
+        'Mit Antragsgebühren',
+        'Vorzeitige Rückzahlung ohne Strafe',
+        'Optionale Kreditversicherung',
+        'Persönlicher Berater',
+        'Mit Verpflichtung',
+      ],
+      commitmentsEyebrow: 'Unsere Verpflichtungen',
+      commitmentsTitle: 'Warum Schnellkredit wählen?',
+      response24: '24 Std.',
+      response24Label: 'Vorabentscheidung',
+      taeg: '1,8%',
+      taegLabel: 'eff. Jahreszins ab',
+      noFees: '0 €',
+      noFeesLabel: 'Antragsgebühren',
+      ctaTitle: 'Eine Frage zu unseren Leistungen?',
+      ctaDesc: 'Unsere Berater stehen Ihnen zur Verfügung, um Sie zur besten Lösung zu führen.',
+      callNow: 'Jetzt anrufen',
+      formTitle: 'Kreditantrag',
+      formDesc: 'Füllen Sie dieses Formular für Ihren Kreditantrag aus',
+      firstNameLabel: 'Vorname *',
+      firstNamePlaceholder: 'Max',
+      lastNameLabel: 'Nachname *',
+      lastNamePlaceholder: 'Mustermann',
+      emailLabel: 'E-Mail *',
+      emailPlaceholder: 'max.mustermann@email.com',
+      phoneLabel: 'Telefon *',
+      phonePlaceholder: '06 12 34 56 78',
+      countryLabel: 'Wohnsitzland *',
+      countryPlaceholder: 'Geben Sie Ihr Land ein',
+      amountLabel: 'Gewünschter Betrag *',
+      amountPlaceholder: 'Geben Sie den Betrag ein',
+      durationLabel: 'Laufzeit (Monate) *',
+      durationPlaceholder: 'Geben Sie die Laufzeit in Monaten ein',
+      submit: 'Meine Anfrage senden',
+      successMsg: 'Ihre Anfrage wurde erfolgreich gesendet!',
+    },
+    contact: {
+      eyebrow: 'Kontakt',
+      heroTitle: 'Sprechen wir über Ihr Projekt',
+      heroDesc: 'Unsere Berater stehen Ihnen zur Verfügung, um Ihre Anfrage zu prüfen und Ihnen die am besten geeignete Kreditlösung anzubieten. Vorabentscheidung in 24 Std.',
+      phone: 'Telefon',
+      whatsapp: 'WhatsApp',
+      email: 'E-Mail',
+      callNow: 'Jetzt anrufen',
+      chatWhatsapp: 'Auf WhatsApp chatten',
+      sendEmail: 'E-Mail senden',
+      formTitle: 'Online-Kreditantrag',
+      formDesc: 'Füllen Sie dieses Formular aus, wir melden uns innerhalb von 24 Std. bei Ihnen. Unverbindlich.',
+      successMsg: 'Ihre Anfrage wurde gesendet! Wir melden uns in Kürze bei Ihnen.',
+      nameLabel: 'Vollständiger Name *',
+      namePlaceholder: 'Max Mustermann',
+      phoneLabel: 'Telefon *',
+      phonePlaceholder: '06 12 34 56 78',
+      emailLabel: 'E-Mail *',
+      emailPlaceholder: 'max.mustermann@email.com',
+      countryLabel: 'Land *',
+      countryPlaceholder: 'Geben Sie Ihr Land ein',
+      amountLabel: 'Gewünschter Betrag',
+      amountPlaceholder: 'Betrag auswählen',
+      amounts: ['1.000 € – 10.000 €', '10.000 € – 50.000 €', '50.000 € – 100.000 €', '100.000 € – 500.000 €', 'Mehr als 500.000 €'],
+      messageLabel: 'Ihr Projekt',
+      messagePlaceholder: 'Beschreiben Sie Ihr Projekt in wenigen Zeilen...',
+      submit: 'Anfrage senden',
+      formDisclaimer: 'Mit dem Absenden dieses Formulars stimmen Sie zu, von unseren Beratern kontaktiert zu werden.',
+      agencyTitle: 'Unsere Filiale in Paris',
+      agencyDesc: 'Im Herzen des 9. Arrondissements empfangen wir Sie von Montag bis Samstag.',
+      addressLabel: 'Adresse',
+      hoursLabel: 'Öffnungszeiten',
+      hoursWeek: 'Mo – Fr: 9:00 – 19:00 Uhr',
+      hoursSat: 'Samstag: 10:00 – 17:00 Uhr',
+      phoneLabel2: 'Telefon',
+      emailLabel2: 'E-Mail',
+      seeMap: 'Auf Karte ansehen',
+      mapClickHint: '75009 Paris — Klicken Sie, um die Karte zu öffnen',
+      mapPopupTitle: 'Schnellkredit — Paris',
+      itinerary: 'Google Maps Route',
+      callAgency: 'Filiale anrufen',
+    },
+    servicesData: [
+      { title: 'Persönlicher Kredit', desc: 'Finanzieren Sie Ihre persönlichen Projekte: Reise, Hochzeit, Ausstattung. Ein Schnellkredit von 1.000 € bis 75.000 € mit Raten, die zu Ihrem Budget passen.', amount: '1.000 € – 75.000 €', duration: '12 bis 84 Monate', rate: 'eff. Jahreszins ab 2,9%' },
+      { title: 'Hypothekendarlehen', desc: 'Werden Sie Hauseigentümer oder investieren Sie. Maßgeschneiderte Finanzierung für Ihr Eigenheim, Zweitwohnsitz oder Mietprojekt in Paris und ganz Frankreich.', amount: 'Bis zu 1.000.000 €', duration: '5 bis 25 Jahre', rate: 'eff. Jahreszins ab 1,8%' },
+      { title: 'Autokredit', desc: 'Kaufen Sie Ihr neues oder gebrauchtes Auto. Ein Schnell-Autokredit mit Vorabentscheidung in 24 Stunden und sofortiger Auszahlung.', amount: '3.000 € – 100.000 €', duration: '12 bis 72 Monate', rate: 'eff. Jahreszins ab 3,1%' },
+      { title: 'Kreditkonsolidierung', desc: 'Bündeln Sie Ihre Kredite in einem und reduzieren Sie Ihre monatlichen Raten um bis zu 60%. Profitieren Sie von einer leichteren finanziellen Situation.', amount: 'Bis zu 200.000 €', duration: 'Bis zu 12 Jahre', rate: 'eff. Jahreszins ab 3,5%' },
+      { title: 'Geschäftskredit', desc: 'Entwickeln Sie Ihr Unternehmen: Liquidität, Ausstattung, Fahrzeug, Investition. Engagiere Betreuung für Unternehmer und deutsche KMU.', amount: '5.000 € – 500.000 €', duration: '12 bis 120 Monate', rate: 'eff. Jahreszins ab 2,5%' },
+      { title: 'Renovierungskredit', desc: 'Renovieren, einrichten oder erweitern Sie Ihr Zuhause. Engagierte Finanzierung für all Ihre Renovierungsprojekte mit sorgenfreier Begleitung.', amount: '1.000 € – 60.000 €', duration: '12 bis 96 Monate', rate: 'eff. Jahreszins ab 3,0%' },
+    ],
+  },
+  it: {
+    nav: { home: 'Home', about: 'Chi siamo', services: 'Servizi', contact: 'Contatti' },
+    brand: { name: 'Prestito Rapido', tagline: 'Soluzioni di Credito' },
+    footer: {
+      about: 'Il vostro partner di fiducia per tutti i vostri progetti di finanziamento a Parigi e in tutta la Francia. Soluzioni rapide, trasparenti e adatte alle vostre esigenze.',
+      navigation: 'Navigazione',
+      ourServices: 'I Nostri Servizi',
+      contactTitle: 'Contatti',
+      whatsappLabel: 'WhatsApp',
+      rights: 'Tutti i diritti riservati.',
+      legal: 'Un credito vi impegna e deve essere rimborsato. Verificate la vostra capacità di rimborso prima di impegnarvi.',
+    },
+    whatsapp: 'WhatsApp',
+    home: {
+      badge: 'N°1 del credito rapido a Parigi',
+      heroTitle: 'Il vostro progetto merita',
+      heroHighlight: 'un finanziamento rapido',
+      heroDesc: 'Prestito personale, mutuo, prestito auto o consolidamento debiti. Ottenete una risposta preliminare in 24 ore e ricevete i fondi in 48h. Semplice, trasparente e senza impegno.',
+      ctaServices: 'Scopri i nostri servizi',
+      ctaRequest: 'Richiedi un prestito',
+      stats: { clients: 'Clienti assistiti', satisfaction: 'Tasso di soddisfazione', response: 'Risposta preliminare', credits: 'Prestiti concessi' },
+      advantagesEyebrow: 'Perché sceglierci',
+      advantagesTitle: "Un'esperienza di credito pensata per voi",
+      advantagesSubtitle: 'Da oltre 10 anni mettiamo la nostra competenza al servizio dei vostri progetti con rapidità, trasparenza e un accompagnamento umano.',
+      advantages: [
+        { title: 'Rapidità garantita', desc: 'Una risposta preliminare in 24h e sblocco dei fondi in 48h.' },
+        { title: '100% sicuro', desc: 'I vostri dati sono protetti e cifrati. Nessuna fuga possibile.' },
+        { title: 'Tassi competitivi', desc: 'Alcuni dei TAN più bassi del mercato, dal 1,8%.' },
+        { title: 'Accompagnamento umano', desc: 'Un consulente dedicato vi guida ad ogni passo del vostro progetto.' },
+        { title: 'Trasparenza totale', desc: 'Nessuna commissione nascosta. Conoscete il costo totale fin dall\'inizio.' },
+        { title: 'Con impegno', desc: 'La vostra richiesta è gratuita e non vi impegna a nulla.' },
+      ],
+      servicesEyebrow: 'Le nostre soluzioni di credito',
+      servicesTitle: 'Un prestito per ogni progetto',
+      servicesSubtitle: 'Che acquistiate una casa, un\'auto o che vogliate consolidare i vostri crediti, abbiamo la soluzione che vi serve.',
+      viewAllServices: 'Vedi tutti i servizi',
+      stepsEyebrow: 'Come funziona',
+      stepsTitle: 'Il vostro prestito in 4 semplici passaggi',
+      stepsSubtitle: 'Un processo chiaro e rapido, dalla richiesta allo sblocco dei fondi.',
+      steps: [
+        { title: '1. Inviate la richiesta', desc: 'Compilate il nostro modulo online in pochi minuti. Indicate l\'importo desiderato e la vostra situazione. Senza impegno.' },
+        { title: '2. Risposta preliminare', desc: 'I nostri consulenti analizzano la vostra pratica e vi inviano una risposta preliminare entro 24 ore, senza commissioni nascoste.' },
+        { title: '3. Firma del contratto', desc: 'Firmate la vostra offerta di prestito online o in agenzia. Accompagnamento personalizzato ad ogni tappa del vostro progetto.' },
+        { title: '4. Sblocco dei fondi', desc: 'Ricevete i fondi direttamente sul vostro conto bancario in 48h dopo la firma. Rapido, semplice e sicuro.' },
+      ],
+      trustEyebrow: 'Si fidano di noi',
+      trustTitle: 'Migliaia di clienti hanno già realizzato i propri progetti',
+      trustDesc: 'Accompagniamo privati e professionisti di Parigi e di tutta la Francia nei loro progetti di finanziamento. La nostra priorità: la vostra soddisfazione.',
+      trustList: [
+        'Un team di consulenti esperti a vostra disposizione',
+        'Soluzioni flessibili adatte al vostro profilo',
+        'Seguito personalizzato dall\'inizio alla fine',
+        'Un\'agenzia nel cuore di Parigi, Boulevard Haussmann',
+      ],
+      trustBadge: '"Grazie a Prestito Rapido, abbiamo potuto comprare la nostra prima casa. Un accompagnamento eccezionale!"',
+      trustBadgeAuthor: '— Sophie & Marc, Parigi 9e',
+      learnMore: 'Saperne di più su di noi',
+      ctaTitle: 'Pronti a realizzare il vostro progetto?',
+      ctaDesc: 'Contattateci oggi e ottenete una risposta preliminare in 24 ore. Senza impegno.',
+      callNow: 'Invia un\'email',
+      sendEmail: 'Invia un\'email',
+      partnersEyebrow: 'Partner',
+      partnersTitle: 'I nostri partner bancari di fiducia',
+      partnersDesc: 'Collaboriamo con le migliori banche francesi per offrirvi le soluzioni più adatte alle vostre esigenze.',
+      banks: [
+        { name: 'BNP Paribas', initial: 'B' },
+        { name: 'Crédit Agricole', initial: 'C' },
+        { name: 'LCL', initial: 'L' },
+        { name: 'Boursorama', initial: 'B' },
+        { name: 'La Banque Postale', initial: 'L' },
+        { name: 'Hello bank!', initial: 'H' },
+      ],
+    },
+    about: {
+      eyebrow: 'Chi siamo',
+      heroTitle: 'Il vostro partner di credito di fiducia, nel cuore di Parigi',
+      heroDesc: 'Dal 2013, Prestito Rapido accompagna privati e professionisti in tutti i loro progetti di finanziamento. La nostra missione: rendere il credito accessibile, rapido e trasparente.',
+      storyEyebrow: 'La nostra storia',
+      storyTitle: 'Nato nel cuore di Parigi, al servizio di tutta la Francia',
+      storyP1: 'Fondata nel 2013 al 29 Boulevard Haussmann, Prestito Rapido è nata da una convinzione semplice: ottenere un credito non dovrebbe essere un percorso a ostacoli. Abbiamo voluto creare una struttura dove la rapidità va di pari passo con la trasparenza, e dove ogni cliente benefici di un vero accompagnamento.',
+      storyP2: 'In oltre dieci anni, abbiamo accompagnato più di 15.000 clienti e concesso più di 500 milioni di euro in prestiti. Dal prestito personale al mutuo, dal consolidamento dei crediti al finanziamento professionale, copriamo tutte le vostre esigenze.',
+      storyP3: 'Oggi, la nostra agenzia parigina rimane il nostro cuore storico, ma i nostri servizi online ci permettono di accompagnare clienti in tutta la Francia, con la stessa esigenza di qualità.',
+      yearsExp: '10+',
+      yearsExpLabel: 'anni di esperienza',
+      missionTitle: 'La nostra missione',
+      missionDesc: 'Rendere il credito accessibile a tutti, rapidamente e con trasparenza. Democraticiamo l\'accesso al finanziamento affinché ciascuno possa realizzare i propri progetti.',
+      visionTitle: 'La nostra visione',
+      visionDesc: 'Diventare il punto di riferimento del credito rapido in Francia, unendo l\'competenza umana dei nostri consulenti con la semplicità di una piattaforma online intuitiva.',
+      commitmentTitle: 'Il nostro impegno',
+      commitmentDesc: '98% di clienti soddisfatti. Ci impegniamo su rapidità, trasparenza e un accompagnamento personalizzato ad ogni passo del vostro progetto.',
+      valuesEyebrow: 'I nostri valori',
+      valuesTitle: 'Cosa ci guida ogni giorno',
+      values: [
+        { title: 'Integrità', desc: 'Agiamo con onestà e trasparenza, senza commissioni nascoste né cattive sorprese.' },
+        { title: 'Prossimità', desc: 'Ogni cliente è unico. Ascoltiamo le vostre esigenze e adattiamo le nostre soluzioni alla vostra situazione.' },
+        { title: 'Reattività', desc: 'La rapidità è la nostra firma. Una risposta in 24h, fondi in 48h.' },
+        { title: 'Prestazione', desc: 'Alcuni dei tassi più bassi del mercato, per rate mensili sempre più leggere.' },
+      ],
+      timelineEyebrow: 'Il nostro percorso',
+      timelineTitle: 'Oltre 10 anni di competenza al vostro servizio',
+      milestones: [
+        { year: '2013', text: 'Creazione di Prestito Rapido nel cuore di Parigi, Boulevard Haussmann.' },
+        { year: '2016', text: 'Oltre 5.000 clienti assistiti. Apertura del servizio di consolidamento crediti.' },
+        { year: '2019', text: 'Lancio della piattaforma online. 10.000 clienti e 200 M€ di prestiti concessi.' },
+        { year: '2022', text: 'Certificazione "Eccellenza del Credito" ed espansione nazionale.' },
+        { year: '2026', text: 'Oltre 15.000 clienti assistiti e 500 M€ di prestiti concessi.' },
+      ],
+      testimonialsEyebrow: 'Testimonianze',
+      testimonialsTitle: 'Cosa dicono di noi i nostri clienti',
+      testimonials: [
+        { name: 'Sophie L.', role: 'Proprietaria, Parigi 9e', text: 'Un mutuo ottenuto in meno di una settimana. Il team è stato notevolmente efficiente. Consiglio vivamente Prestito Rapido.' },
+        { name: 'James W.', role: 'Imprenditore, Londra', text: 'Servizio eccellente per il mio prestito aziendale. Tassi competitivi e supporto perfetto. Lo consiglio vivamente!' },
+        { name: 'Carlos G.', role: 'Architetto, Madrid', text: 'Il prestito per il mio progetto di costruzione è stato approvato rapidamente. Servizio eccezionale e molto professionale.' },
+        { name: 'Hans M.', role: 'Ingegnere, Berlino', text: 'Approvazione del prestito rapida e affidabile. Il processo è stato trasparente e il servizio clienti eccellente. Molto consigliato!' },
+      ],
+      ctaTitle: 'Unitevi ai nostri 15.000 clienti soddisfatti',
+      ctaDesc: 'Affidate il vostro progetto a esperti che si dedicano ad accompagnarvi.',
+      contactUs: 'Contattateci',
+    },
+    services: {
+      eyebrow: 'I nostri servizi',
+      heroTitle: 'Soluzioni di credito per ogni esigenza',
+      heroDesc: 'Dal prestito personale al consolidamento dei crediti, scoprite le nostre soluzioni flessibili e competitive, adatte al vostro profilo e al vostro progetto.',
+      serviceLabel: 'Servizio',
+      requestLoan: 'Richiedi questo prestito',
+      amount: 'Importo',
+      duration: 'Durata',
+      rate: 'Tasso',
+      includesEyebrow: 'Cosa è incluso',
+      includesTitle: 'Tutti i nostri prestiti, senza sorprese',
+      includesSubtitle: 'Qualunque sia il vostro progetto, i nostri impegni rimangono gli stessi: rapidità, trasparenza e accompagnamento.',
+      includes: [
+        'Risposta preliminare in 24h',
+        'Con commissioni di istruttoria',
+        'Rimborso anticipato senza penalità',
+        'Assicurazione prestito opzionale',
+        'Consulente dedicato',
+        'Con impegno',
+      ],
+      commitmentsEyebrow: 'I nostri impegni',
+      commitmentsTitle: 'Perché scegliere Prestito Rapido?',
+      response24: '24h',
+      response24Label: 'Risposta preliminare',
+      taeg: '1,8%',
+      taegLabel: 'TAN dal',
+      noFees: '0 €',
+      noFeesLabel: 'Commissioni di istruttoria',
+      ctaTitle: 'Una domanda sui nostri servizi?',
+      ctaDesc: 'I nostri consulenti sono a vostra disposizione per indirizzarvi verso la migliore soluzione.',
+      callNow: 'Chiama ora',
+      formTitle: 'Richiesta di prestito',
+      formDesc: 'Compilate questo modulo per la vostra richiesta di prestito',
+      firstNameLabel: 'Nome *',
+      firstNamePlaceholder: 'Mario',
+      lastNameLabel: 'Cognome *',
+      lastNamePlaceholder: 'Rossi',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'mario.rossi@email.com',
+      phoneLabel: 'Telefono *',
+      phonePlaceholder: '06 12 34 56 78',
+      countryLabel: 'Paese di residenza *',
+      countryPlaceholder: 'Inserite il vostro paese',
+      amountLabel: 'Importo desiderato *',
+      amountPlaceholder: 'Inserite l\'importo',
+      durationLabel: 'Durata (mesi) *',
+      durationPlaceholder: 'Inserite la durata in mesi',
+      submit: 'Invia la mia richiesta',
+      successMsg: 'La vostra richiesta è stata inviata con successo!',
+    },
+    contact: {
+      eyebrow: 'Contatti',
+      heroTitle: 'Parliamo del vostro progetto',
+      heroDesc: 'I nostri consulenti sono a vostra disposizione per esaminare la vostra richiesta e proporvi la soluzione di credito più adatta. Risposta preliminare in 24h.',
+      phone: 'Telefono',
+      whatsapp: 'WhatsApp',
+      email: 'Email',
+      callNow: 'Chiama ora',
+      chatWhatsapp: 'Chatta su WhatsApp',
+      sendEmail: 'Invia un\'email',
+      formTitle: 'Richiesta di prestito online',
+      formDesc: 'Compilate questo modulo, vi ricontatteremo entro 24h. Senza impegno.',
+      successMsg: 'La vostra richiesta è stata inviata! Vi ricontatteremo molto presto.',
+      nameLabel: 'Nome completo *',
+      namePlaceholder: 'Mario Rossi',
+      phoneLabel: 'Telefono *',
+      phonePlaceholder: '06 12 34 56 78',
+      emailLabel: 'Email *',
+      emailPlaceholder: 'mario.rossi@email.com',
+      countryLabel: 'Paese *',
+      countryPlaceholder: 'Inserite il vostro paese',
+      amountLabel: 'Importo desiderato',
+      amountPlaceholder: 'Selezionate un importo',
+      amounts: ['1.000 € – 10.000 €', '10.000 € – 50.000 €', '50.000 € – 100.000 €', '100.000 € – 500.000 €', 'Più di 500.000 €'],
+      messageLabel: 'Il vostro progetto',
+      messagePlaceholder: 'Descrivete il vostro progetto in poche righe...',
+      submit: 'Invia la mia richiesta',
+      formDisclaimer: 'Inviando questo modulo, accettate di essere ricontattati dai nostri consulenti.',
+      agencyTitle: 'La nostra agenzia a Parigi',
+      agencyDesc: 'Nel cuore del 9° arrondissement, vi accogliamo dal lunedì al sabato.',
+      addressLabel: 'Indirizzo',
+      hoursLabel: 'Orari',
+      hoursWeek: 'Lun – Ven: 9:00 – 19:00',
+      hoursSat: 'Sabato: 10:00 – 17:00',
+      phoneLabel2: 'Telefono',
+      emailLabel2: 'Email',
+      seeMap: 'Vedi sulla mappa',
+      mapClickHint: '75009 Parigi — Cliccate per aprire la mappa',
+      mapPopupTitle: 'Prestito Rapido — Parigi',
+      itinerary: 'Indicazioni Google Maps',
+      callAgency: 'Chiama l\'agenzia',
+    },
+    servicesData: [
+      { title: 'Prestito Personale', desc: 'Finanziate i vostri progetti personali: viaggio, matrimonio, attrezzatura. Un credito rapido da 1.000 € a 75.000 € con rate adatte al vostro budget.', amount: '1.000 € – 75.000 €', duration: '12 a 84 mesi', rate: 'TAN dal 2,9%' },
+      { title: 'Mutuo', desc: 'Diventate proprietari o investite. Un finanziamento su misura per la vostra residenza principale, secondaria o il vostro progetto locativo a Parigi e in tutta la Francia.', amount: 'Fino a 1.000.000 €', duration: '5 a 25 anni', rate: 'TAN dal 1,8%' },
+      { title: 'Prestito Auto', desc: 'Acquistate la vostra auto nuova o usata. Un credito auto rapido con una risposta preliminare in 24 ore e sblocco immediato dei fondi.', amount: '3.000 € – 100.000 €', duration: '12 a 72 mesi', rate: 'TAN dal 3,1%' },
+      { title: 'Consolidamento Debiti', desc: 'Raggruppate i vostri prestiti in uno solo e riducete le rate fino al 60%. Beneficiate di una situazione finanziaria più leggera e un budget più sereno.', amount: 'Fino a 200.000 €', duration: 'Fino a 12 anni', rate: 'TAN dal 3,5%' },
+      { title: 'Prestito Professionale', desc: 'Sviluppate la vostra impresa: liquidità, attrezzatura, veicolo, investimento. Un accompagnamento dedicato agli imprenditori e PMI francesi.', amount: '5.000 € – 500.000 €', duration: '12 a 120 mesi', rate: 'TAN dal 2,5%' },
+      { title: 'Prestito Ristrutturazione', desc: 'Ristrutturate, arredate o ampliate la vostra abitazione. Un finanziamento dedicato a tutti i vostri progetti di ristrutturazione con un seguito senza pensieri.', amount: '1.000 € – 60.000 €', duration: '12 a 96 mesi', rate: 'TAN dal 3,0%' },
+    ],
+  },
+};
