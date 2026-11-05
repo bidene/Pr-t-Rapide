@@ -8,6 +8,8 @@ import {
 import SectionTitle from '@/components/SectionTitle';
 import { contact, images } from '@/data/site';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { languages } from '@/i18n/translations';
+import { sendToWhatsApp } from '@/lib/whatsapp';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Wallet, Home: HomeIcon, Car, RefreshCw, Briefcase, Hammer,
@@ -23,7 +25,7 @@ const serviceMeta = [
 ];
 
 export default function Services() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({
@@ -34,6 +36,7 @@ export default function Services() {
     country: '',
     amount: '',
     duration: '',
+    project: '',
   });
 
   const handleOpenForm = (serviceTitle: string) => {
@@ -43,19 +46,32 @@ export default function Services() {
 
   const handleCloseForm = () => {
     setSelectedService(null);
-    setForm({ firstName: '', lastName: '', email: '', phone: '', country: '', amount: '', duration: '' });
+    setForm({ firstName: '', lastName: '', email: '', phone: '', country: '', amount: '', duration: '', project: '' });
     setSent(false);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Message rédigé dans la langue choisie par le client
+    const language = languages.find((l) => l.code === lang)!;
+    sendToWhatsApp(`${t.services.formTitle} — ${language.flag} ${language.label}`, [
+      [t.services.serviceLabel, selectedService ?? ''],
+      [t.services.firstNameLabel, form.firstName],
+      [t.services.lastNameLabel, form.lastName],
+      [t.services.emailLabel, form.email],
+      [t.services.phoneLabel, form.phone],
+      [t.services.countryLabel, form.country],
+      [t.services.amountLabel, form.amount],
+      [t.services.durationLabel, form.duration],
+      [t.services.projectLabel, form.project],
+    ]);
     setSent(true);
     setTimeout(() => {
       handleCloseForm();
     }, 3000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -330,6 +346,19 @@ export default function Services() {
                       onChange={handleChange}
                       className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
                       placeholder={t.services.durationPlaceholder}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">{t.services.projectLabel}</label>
+                    <textarea
+                      name="project"
+                      required
+                      rows={4}
+                      value={form.project}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all resize-none"
+                      placeholder={t.services.projectPlaceholder}
                     />
                   </div>
 

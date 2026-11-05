@@ -47,11 +47,16 @@ export default {
           '0%': { opacity: '0', transform: 'scale(0.96)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        progress: {
+          '0%': { width: '0%' },
+          '100%': { width: '100%' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.6s ease-out both',
         'fade-in': 'fade-in 0.5s ease-out both',
         'scale-in': 'scale-in 0.3s ease-out both',
+        progress: 'progress linear both',
       },
     },
   },

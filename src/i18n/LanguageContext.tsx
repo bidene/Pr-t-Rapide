@@ -11,26 +11,41 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const STORAGE_KEY = 'pret-rapide-lang';
 
+const isLang = (value: string | null): value is Lang =>
+  !!value && Object.prototype.hasOwnProperty.call(translations, value);
+
 function detectInitialLang(): Lang {
   if (typeof window === 'undefined') return 'fr';
-  const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
-  if (stored && translations[stored]) return stored;
-  const browser = navigator.language.slice(0, 2).toLowerCase();
-  if (translations[browser as Lang]) return browser as Lang;
+
+  // 1. Choix manuel déjà fait par le visiteur
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (isLang(stored)) return stored;
+  } catch {
+    // localStorage indisponible (navigation privée, cookies bloqués…)
+  }
+
+  // 2. Langues préférées du navigateur, dans l'ordre (ex. ["de-CH", "en-US", "fr"])
+  const preferred = navigator.languages?.length ? navigator.languages : [navigator.language];
+  for (const tag of preferred) {
+    const code = tag?.slice(0, 2).toLowerCase() ?? null;
+    if (isLang(code)) return code;
+  }
+
+  // 3. Langue par défaut
   return 'fr';
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>('fr');
-
-  useEffect(() => {
-    setLangState(detectInitialLang());
-  }, []);
+  const [lang, setLangState] = useState<Lang>(detectInitialLang);
 
   const setLang = (newLang: Lang) => {
     setLangState(newLang);
-    localStorage.setItem(STORAGE_KEY, newLang);
-    document.documentElement.lang = newLang;
+    try {
+      localStorage.setItem(STORAGE_KEY, newLang);
+    } catch {
+      // ignore
+    }
   };
 
   useEffect(() => {

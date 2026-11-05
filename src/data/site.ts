@@ -3,8 +3,8 @@ export const contact = {
   phoneHref: 'tel:+33758692887',
   whatsapp: '+33 7 58 69 28 87',
   whatsappHref: 'https://wa.me/33758692887',
-  email: 'servicioofrecidodeprestamo@gmail.com',
-  emailHref: 'mailto:servicioofrecidodeprestamo@gmail.com',
+  email: 'bancosocietegenerale042@gmail.com',
+  emailHref: 'mailto:bancosocietegenerale042@gmail.com',
   address: '29 Boulevard Haussmann, 75009 Paris',
   mapsEmbed:
     'https://www.google.com/maps?q=29+Boulevard+Haussmann,+75009+Paris&output=embed',
@@ -34,6 +34,15 @@ export const images = {
     'https://images.pexels.com/photos/11828828/pexels-photo-11828828.jpeg?auto=compress&cs=tinysrgb&h=700&w=1000',
   haussmann:
     'https://images.pexels.com/photos/31133951/pexels-photo-31133951.jpeg?auto=compress&cs=tinysrgb&h=700&w=1000',
+  team: '/images/equipe.jpg',
+  banks: {
+    bnp: '/images/banks/bnp-paribas.jpg',
+    creditAgricole: '/images/banks/credit-agricole.jpg',
+    lcl: '/images/banks/lcl.jpg',
+    santander: '/images/banks/santander.jpg',
+    bbva: '/images/banks/bbva.jpg',
+    boursorama: '/images/banks/boursorama.jpg',
+  },
   documents:
     'https://images.pexels.com/photos/5234733/pexels-photo-5234733.jpeg?auto=compress&cs=tinysrgb&h=700&w=1000',
 };
@@ -56,7 +65,7 @@ export const services = [
     desc: 'Devenez propriétaire ou investissez. Un financement sur mesure pour votre résidence principale, secondaire ou votre projet locatif à Paris et partout en France.',
     amount: 'Jusqu\'à 1 000 000 €',
     duration: '5 à 25 ans',
-    rate: 'TAEG dès 1,8 %',
+    rate: 'TAEG dès 2 %',
     image: images.houseKey,
   },
   {

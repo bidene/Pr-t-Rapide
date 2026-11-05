@@ -5,15 +5,27 @@ import {
 } from 'lucide-react';
 import { contact, images } from '@/data/site';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { languages } from '@/i18n/translations';
+import { sendToWhatsApp } from '@/lib/whatsapp';
 
 export default function Contact() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [mapOpen, setMapOpen] = useState(false);
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', country: '', amount: '', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Message rédigé dans la langue choisie par le client
+    const language = languages.find((l) => l.code === lang)!;
+    sendToWhatsApp(`${t.contact.formTitle} — ${language.flag} ${language.label}`, [
+      [t.contact.nameLabel, form.name],
+      [t.contact.phoneLabel, form.phone],
+      [t.contact.emailLabel, form.email],
+      [t.contact.countryLabel, form.country],
+      [t.contact.amountLabel, form.amount],
+      [t.contact.messageLabel, form.message],
+    ]);
     setSent(true);
     setForm({ name: '', email: '', phone: '', country: '', amount: '', message: '' });
     setTimeout(() => setSent(false), 5000);
@@ -24,9 +36,9 @@ export default function Contact() {
   };
 
   const contactCards = [
-    { icon: Phone, label: t.contact.phone, value: contact.phone, href: contact.phoneHref, color: 'bg-brand-50 text-brand-600', action: t.contact.callNow },
-    { icon: MessageCircle, label: t.contact.whatsapp, value: contact.whatsapp, href: contact.whatsappHref, external: true, color: 'bg-green-50 text-green-600', action: t.contact.chatWhatsapp },
-    { icon: Mail, label: t.contact.email, value: contact.email, href: contact.emailHref, color: 'bg-gold-50 text-gold-600', action: t.contact.sendEmail },
+    { icon: Phone, label: t.contact.phone, value: contact.phone, href: contact.phoneHref, color: 'bg-brand-600 text-white shadow-lg shadow-brand-600/30', action: t.contact.callNow },
+    { icon: MessageCircle, label: t.contact.whatsapp, value: contact.whatsapp, href: contact.whatsappHref, external: true, color: 'bg-green-500 text-white shadow-lg shadow-green-500/30', action: t.contact.chatWhatsapp },
+    { icon: Mail, label: t.contact.email, value: contact.email, href: contact.emailHref, color: 'bg-gold-500 text-white shadow-lg shadow-gold-500/30', action: t.contact.sendEmail },
   ];
 
   return (
@@ -123,12 +135,13 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">{t.contact.amountLabel}</label>
-                  <select name="amount" value={form.amount} onChange={handleChange} className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all bg-white">
-                    <option value="">{t.contact.amountPlaceholder}</option>
+                  {/* Le client peut écrire son montant ou choisir une tranche proposée */}
+                  <input type="text" name="amount" list="contact-amounts" autoComplete="off" value={form.amount} onChange={handleChange} className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all bg-white" placeholder={t.contact.amountPlaceholder} />
+                  <datalist id="contact-amounts">
                     {t.contact.amounts.map((amt) => (
-                      <option key={amt} value={amt}>{amt}</option>
+                      <option key={amt} value={amt} />
                     ))}
-                  </select>
+                  </datalist>
                 </div>
 
                 <div>

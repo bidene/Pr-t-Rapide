@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import SectionTitle from '@/components/SectionTitle';
 import Testimonials from '@/components/Testimonials';
+import LoanRequestModal from '@/components/LoanRequestModal';
 import { contact, images } from '@/data/site';
 import { useLanguage } from '@/i18n/LanguageContext';
 
@@ -23,30 +24,26 @@ const advantageIcons = [Clock, Lock, TrendingDown, Users, Award, CheckCircle2];
 export default function Home() {
   const { t } = useLanguage();
   const [currentBankIndex, setCurrentBankIndex] = useState(0);
+  const [loanFormOpen, setLoanFormOpen] = useState(false);
 
-  const bankColors = [
-    { color: 'bg-green-600', textColor: 'text-green-600', bgLight: 'bg-green-50', borderColor: 'border-green-200' },
-    { color: 'bg-red-600', textColor: 'text-red-600', bgLight: 'bg-red-50', borderColor: 'border-red-200' },
-    { color: 'bg-blue-700', textColor: 'text-blue-700', bgLight: 'bg-blue-50', borderColor: 'border-blue-200' },
-    { color: 'bg-orange-500', textColor: 'text-orange-500', bgLight: 'bg-orange-50', borderColor: 'border-orange-200' },
-    { color: 'bg-teal-600', textColor: 'text-teal-600', bgLight: 'bg-teal-50', borderColor: 'border-teal-200' },
-    { color: 'bg-pink-600', textColor: 'text-pink-600', bgLight: 'bg-pink-50', borderColor: 'border-pink-200' },
+  const banks = [
+    { name: 'BNP Paribas', logo: images.banks.bnp, textColor: 'text-green-700', borderColor: 'border-green-200' },
+    { name: 'Crédit Agricole', logo: images.banks.creditAgricole, textColor: 'text-teal-700', borderColor: 'border-teal-200' },
+    { name: 'LCL', logo: images.banks.lcl, textColor: 'text-blue-800', borderColor: 'border-blue-200' },
+    { name: 'Santander', logo: images.banks.santander, textColor: 'text-red-600', borderColor: 'border-red-200' },
+    { name: 'BBVA', logo: images.banks.bbva, textColor: 'text-blue-900', borderColor: 'border-blue-300' },
+    { name: 'Boursorama Banque', logo: images.banks.boursorama, textColor: 'text-pink-600', borderColor: 'border-pink-200' },
   ];
-
-  const banks = t.home.banks.map((bank, index) => ({
-    ...bank,
-    ...bankColors[index],
-  }));
 
   const [animatedStats, setAnimatedStats] = useState({ clients: 0, satisfaction: 0, response: 0, credits: 0 });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentBankIndex((prev) => (prev + 1) % t.home.banks.length);
+      setCurrentBankIndex((prev) => (prev + 1) % banks.length);
     }, 3000); // Change every 3 seconds
 
     return () => clearInterval(interval);
-  }, [t.home.banks.length]);
+  }, [banks.length]);
 
   useEffect(() => {
     const duration = 2000; // 2 seconds animation
@@ -115,10 +112,6 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16 sm:pb-20">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 px-3 sm:px-4 py-1.5 mb-4 sm:mb-6 animate-fade-up">
-              <Star className="h-4 w-4 text-gold-300" />
-              <span className="text-xs sm:text-sm font-medium text-white">{t.home.badge}</span>
-            </div>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-[1.1] sm:leading-[1.1] animate-fade-up" style={{ animationDelay: '0.1s' }}>
               {t.home.heroTitle} <span className="text-gold-300">{t.home.heroHighlight}</span>
             </h1>
@@ -133,12 +126,13 @@ export default function Home() {
                 {t.home.ctaServices}
                 <ArrowRight className="h-4 sm:h-5 w-4 sm:w-5" />
               </Link>
-              <Link
-                to="/contact"
+              <button
+                type="button"
+                onClick={() => setLoanFormOpen(true)}
                 className="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/30 px-5 sm:px-7 py-3 sm:py-4 text-sm sm:text-base font-bold text-white hover:bg-white/20 transition-all"
               >
                 {t.home.ctaRequest}
-              </Link>
+              </button>
             </div>
 
             <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
@@ -206,36 +200,60 @@ export default function Home() {
               {t.home.partnersDesc}
             </p>
           </div>
-          <div className="relative">
-            {/* Main bank display */}
-            <div className="relative overflow-hidden">
-              <div
-                className="flex transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${currentBankIndex * 100}%)` }}
-              >
-                {banks.map((bank) => (
-                  <div key={bank.name} className="w-full flex-shrink-0 px-4">
-                    <div className="max-w-md mx-auto">
-                      <div
-                        className={`group rounded-2xl p-8 sm:p-12 shadow-2xl border-2 ${bank.borderColor} hover:scale-105 transition-all duration-300 flex items-center justify-center bg-white`}
-                      >
-                        <div className={`flex items-center gap-4 sm:gap-6 ${bank.bgLight} rounded-2xl px-6 sm:px-10 py-4 sm:py-8 w-full justify-center`}>
-                          <div className={`h-16 w-16 sm:h-20 sm:w-20 rounded-full ${bank.color} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform`}>
-                            <span className="text-white font-bold text-2xl sm:text-3xl">{bank.initial}</span>
+          <div className="mx-auto max-w-4xl">
+            <div className="relative">
+              {/* Main bank display */}
+              <div className="overflow-hidden py-10 -my-10">
+                <div
+                  className="flex transition-transform duration-700 ease-in-out"
+                  style={{ transform: `translateX(-${currentBankIndex * 100}%)` }}
+                >
+                  {banks.map((bank) => (
+                    <div key={bank.name} className="w-full flex-shrink-0 px-14 sm:px-20">
+                      <div className="max-w-md mx-auto">
+                        <div
+                          className={`rounded-2xl p-6 sm:p-8 shadow-xl border-2 ${bank.borderColor} hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center bg-white`}
+                        >
+                          <div className="flex h-28 sm:h-36 w-full items-center justify-center">
+                            <img
+                              src={bank.logo}
+                              alt={bank.name}
+                              className="max-h-full max-w-full object-contain rounded-lg"
+                            />
                           </div>
-                          <span className={`font-display font-bold text-lg sm:text-2xl ${bank.textColor} group-hover:scale-105 transition-transform`}>
+                          <span className={`mt-4 font-display font-bold text-lg sm:text-xl ${bank.textColor}`}>
                             {bank.name}
                           </span>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+
+              {/* Navigation arrows */}
+              <button
+                onClick={() => setCurrentBankIndex((prev) => (prev - 1 + banks.length) % banks.length)}
+                className="absolute left-0 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-brand-600 hover:bg-brand-50 hover:scale-110 transition-all"
+                aria-label="Previous bank"
+              >
+                <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setCurrentBankIndex((prev) => (prev + 1) % banks.length)}
+                className="absolute right-0 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-brand-600 hover:bg-brand-50 hover:scale-110 transition-all"
+                aria-label="Next bank"
+              >
+                <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
 
             {/* Navigation dots */}
-            <div className="flex justify-center gap-2 sm:gap-3 mt-6 sm:mt-8">
+            <div className="flex justify-center gap-2 sm:gap-3 mt-8 sm:mt-10">
               {banks.map((_, index) => (
                 <button
                   key={index}
@@ -249,55 +267,34 @@ export default function Home() {
                 />
               ))}
             </div>
-
-            {/* Navigation arrows */}
-            <button
-              onClick={() => setCurrentBankIndex((prev) => (prev - 1 + banks.length) % banks.length)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 lg:-translate-x-12 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-brand-600 hover:bg-brand-50 hover:scale-110 transition-all"
-              aria-label="Previous bank"
-            >
-              <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={() => setCurrentBankIndex((prev) => (prev + 1) % banks.length)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 lg:translate-x-12 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-brand-600 hover:bg-brand-50 hover:scale-110 transition-all"
-              aria-label="Next bank"
-            >
-              <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
           </div>
 
           {/* Mini preview cards */}
-          <div className="mt-12 sm:mt-16 grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto max-w-4xl mt-10 sm:mt-14 grid gap-3 sm:gap-4 grid-cols-3 lg:grid-cols-6">
             {banks.map((bank, index) => (
-              <div
+              <button
+                type="button"
                 key={bank.name}
                 onClick={() => setCurrentBankIndex(index)}
-                className={`p-3 sm:p-4 rounded-xl cursor-pointer transition-all duration-300 ${
+                className={`flex flex-col items-center gap-2 p-3 sm:p-4 rounded-xl border-2 transition-all duration-300 ${
                   index === currentBankIndex
-                    ? `bg-white shadow-lg border-2 ${bank.borderColor} scale-105`
-                    : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
+                    ? `bg-white shadow-md ${bank.borderColor}`
+                    : 'bg-gray-50 border-transparent hover:bg-gray-100'
                 }`}
               >
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div
-                    className={`h-8 w-8 sm:h-10 sm:w-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-lg ${
-                      index === currentBankIndex
-                        ? `${bank.color} text-white`
-                        : `${bank.bgLight} ${bank.textColor}`
+                <div className="flex h-10 sm:h-12 w-full items-center justify-center">
+                  <img
+                    src={bank.logo}
+                    alt=""
+                    className={`max-h-full max-w-full object-contain rounded transition-opacity ${
+                      index === currentBankIndex ? 'opacity-100' : 'opacity-70'
                     }`}
-                  >
-                    {bank.initial}
-                  </div>
-                  <span className={`font-semibold text-sm sm:text-base ${index === currentBankIndex ? bank.textColor : 'text-gray-700'}`}>
-                    {bank.name}
-                  </span>
+                  />
                 </div>
-              </div>
+                <span className={`font-semibold text-xs sm:text-sm text-center ${index === currentBankIndex ? bank.textColor : 'text-gray-700'}`}>
+                  {bank.name}
+                </span>
+              </button>
             ))}
           </div>
         </div>
@@ -480,6 +477,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LoanRequestModal open={loanFormOpen} onClose={() => setLoanFormOpen(false)} />
     </>
   );
 }
