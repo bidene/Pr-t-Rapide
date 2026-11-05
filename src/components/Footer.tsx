@@ -37,7 +37,7 @@ export default function Footer() {
             <ul className="space-y-2 sm:space-y-3">
               {navLinks.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="text-xs sm:text-sm text-white/70 hover:text-gold-400 transition-colors">
+                  <Link to={l.to} className="inline-block py-1.5 sm:py-0 text-sm text-white/70 hover:text-gold-400 transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -56,21 +56,21 @@ export default function Footer() {
 
           <div>
             <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-gold-400 mb-4 sm:mb-5">{t.footer.contactTitle}</h4>
-            <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm">
+            <ul className="space-y-2 sm:space-y-4 text-sm">
               <li>
-                <a href={contact.phoneHref} className="flex items-start gap-2 sm:gap-3 text-white/70 hover:text-gold-400 transition-colors">
+                <a href={contact.phoneHref} className="flex items-start gap-2 sm:gap-3 py-1.5 sm:py-0 text-white/70 hover:text-gold-400 transition-colors">
                   <Phone className="h-4 w-4 mt-0.5 text-gold-400 flex-shrink-0" />
                   <span>{contact.phone}</span>
                 </a>
               </li>
               <li>
-                <a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 sm:gap-3 text-white/70 hover:text-gold-400 transition-colors">
+                <a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 sm:gap-3 py-1.5 sm:py-0 text-white/70 hover:text-gold-400 transition-colors">
                   <MessageCircle className="h-4 w-4 mt-0.5 text-gold-400 flex-shrink-0" />
                   <span>{t.footer.whatsappLabel}: {contact.whatsapp}</span>
                 </a>
               </li>
               <li>
-                <a href={contact.emailHref} className="flex items-start gap-2 sm:gap-3 text-white/70 hover:text-gold-400 transition-colors break-all">
+                <a href={contact.emailHref} className="flex items-start gap-2 sm:gap-3 py-1.5 sm:py-0 text-white/70 hover:text-gold-400 transition-colors break-all">
                   <Mail className="h-4 w-4 mt-0.5 text-gold-400 flex-shrink-0" />
                   <span>{contact.email}</span>
                 </a>

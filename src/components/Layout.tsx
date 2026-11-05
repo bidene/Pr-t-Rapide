@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
+import Seo from './Seo';
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -13,6 +14,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <Seo />
       <Navbar />
       <main className="flex-1">
         <Outlet />

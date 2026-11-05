@@ -199,7 +199,7 @@ export default function Testimonials() {
                   <button
                     key={item.name}
                     onClick={() => goToSlide(index)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                    className={`relative h-2.5 rounded-full transition-all duration-300 before:absolute before:content-[''] before:-inset-y-4 before:-inset-x-1 ${
                       index === currentIndex ? 'w-8 bg-brand-600' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}

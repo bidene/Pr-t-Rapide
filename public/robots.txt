@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Quand le nom de domaine sera connu, ajouter la ligne suivante (avec la vraie adresse) :
+# Sitemap: https://www.VOTRE-DOMAINE.fr/sitemap.xml

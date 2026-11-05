@@ -17,6 +17,10 @@ const isLang = (value: string | null): value is Lang =>
 function detectInitialLang(): Lang {
   if (typeof window === 'undefined') return 'fr';
 
+  // 0. Robots des moteurs de recherche (Googlebot, Bingbot…) : toujours la version française,
+  //    sinon Google indexerait la version anglaise (Googlebot se présente en en-US).
+  if (/bot|crawl|spider|slurp|lighthouse|facebookexternalhit|whatsapp/i.test(navigator.userAgent)) return 'fr';
+
   // 1. Choix manuel déjà fait par le visiteur
   try {
     const stored = localStorage.getItem(STORAGE_KEY);

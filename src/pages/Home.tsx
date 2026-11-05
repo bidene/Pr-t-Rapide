@@ -258,7 +258,7 @@ export default function Home() {
                 <button
                   key={index}
                   onClick={() => setCurrentBankIndex(index)}
-                  className={`h-3 rounded-full transition-all duration-300 ${
+                  className={`relative h-3 rounded-full transition-all duration-300 before:absolute before:content-[''] before:-inset-y-4 before:-inset-x-1 sm:before:-inset-x-1.5 ${
                     index === currentBankIndex
                       ? 'w-6 sm:w-8 bg-brand-600'
                       : 'w-3 bg-gray-300 hover:bg-gray-400'
