@@ -13,7 +13,7 @@ export const contact = {
 };
 
 export const images = {
-  hero: 'https://images.pexels.com/photos/5912592/pexels-photo-5912592.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400',
+  hero: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920&fit=crop',
   handshake:
     'https://images.pexels.com/photos/33175650/pexels-photo-33175650.jpeg?auto=compress&cs=tinysrgb&h=700&w=1000',
   paris:
